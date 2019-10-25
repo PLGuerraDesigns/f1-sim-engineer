@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/black"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/bg_image"
+        android:layout_width="537dp"
+        android:layout_height="302dp"
+        android:background="@drawable/bg_image"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        app:layout_constraintTop_toTopOf="@id/bg_image"
+        app:layout_constraintBottom_toBottomOf="@id/bg_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="F1 Sim
+        Engineer"
+        android:gravity="center_horizontal"
+        android:textSize="70dp"
+        android:textColor="@color/white"/>
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="35dp"
+        android:layout_height="165dp"
+        android:layout_marginBottom="70dp"
+        android:background="@drawable/rectangle"
+        app:layout_constraintTop_toBottomOf="@id/bg_image"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+
+    <LinearLayout
+        android:id="@+id/analysis_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+        app:layout_constraintEnd_toEndOf="@+id/imageView3"
+        app:layout_constraintStart_toStartOf="@+id/imageView3"
+        app:layout_constraintTop_toTopOf="@+id/imageView3"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/analysis_button"
+            android:layout_width="86dp"
+            android:layout_height="86dp"
+            android:background="@drawable/analysis_icon"
+            android:backgroundTint="@color/white"/>
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Analysis"
+            android:textColor="@color/white"
+            android:gravity="center"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="1dp"
+        android:layout_height="150dp"
+        android:background="@drawable/line"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+        app:layout_constraintEnd_toStartOf="@+id/analysis_group"
+        app:layout_constraintStart_toEndOf="@+id/dashboard_group"
+        app:layout_constraintTop_toTopOf="@+id/imageView3" />
+
+    <ImageView
+        android:layout_width="1dp"
+        android:layout_height="150dp"
+        android:background="@drawable/line"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+        app:layout_constraintEnd_toStartOf="@+id/settings_group"
+        app:layout_constraintStart_toEndOf="@+id/analysis_group"
+        app:layout_constraintTop_toTopOf="@+id/imageView3" />
+
+
+
+    <LinearLayout
+        android:id="@+id/dashboard_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+        app:layout_constraintEnd_toStartOf="@+id/analysis_group"
+        app:layout_constraintStart_toStartOf="@+id/imageView3"
+        app:layout_constraintTop_toTopOf="@+id/imageView3"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/dashboard_button"
+            android:layout_width="86dp"
+            android:layout_height="86dp"
+            android:background="@drawable/dashboard_icon"
+            android:backgroundTint="@color/white" />
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Dasboard"
+            android:textColor="@color/white"
+            android:gravity="center"/>
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:id="@+id/settings_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
+        app:layout_constraintEnd_toEndOf="@+id/imageView3"
+        app:layout_constraintStart_toEndOf="@+id/analysis_group"
+        app:layout_constraintTop_toTopOf="@+id/imageView3"
+        android:orientation="vertical">
+
+    <Button
+        android:id="@+id/settings_button"
+        android:layout_width="86dp"
+        android:layout_height="86dp"
+        android:background="@drawable/settings_icon"
+        android:backgroundTint="@color/white"/>
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Settings"
+        android:textColor="@color/white"
+        android:gravity="center"/>
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
