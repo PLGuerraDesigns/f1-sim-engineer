@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     //Open Create Note Page
     public void openSimpleDash(){
-        Intent intent = new Intent(this, SimpleDash.class);
+        Intent intent = new Intent(this, Dashboard.class);
         startActivity(intent);
     }
 }

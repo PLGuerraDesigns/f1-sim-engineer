@@ -4,11 +4,22 @@
    android:background="@color/black" >
 
 
+
+    <TextView
+        android:id="@+id/data"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text=""
+        android:textSize="20dp"
+        android:textColor="@color/red"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="15dp"/>
+
     <TextView
         android:id="@+id/gear"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:text="3"
+        android:text=""
         android:textSize="350dp"
         android:textColor="@color/red"
         android:fontFamily="@font/digital"
