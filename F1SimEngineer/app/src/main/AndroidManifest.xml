@@ -16,6 +16,10 @@
             android:windowSoftInputMode="adjustResize"
             android:launchMode="singleTop"/>
 
+        <activity android:name=".TrackOverview"
+            android:windowSoftInputMode="adjustResize"
+            android:launchMode="singleTop"/>
+
         <activity android:name=".MainActivity"
             android:launchMode="singleTask">
             <intent-filter>

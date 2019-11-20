@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.analysis_button:
-                Toast.makeText(this,"Open Analysis Page", Toast.LENGTH_SHORT).show();
+                openSimpleTrackOverview();
                 break;
 
             case R.id.settings_button:
@@ -50,6 +50,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     //Open Create Note Page
     public void openSimpleDash(){
         Intent intent = new Intent(this, Dashboard.class);
+        startActivity(intent);
+    }
+
+    //Open TrackOverview page
+    public void openSimpleTrackOverview(){
+        Intent intent = new Intent(this, TrackOverview.class);
         startActivity(intent);
     }
 }

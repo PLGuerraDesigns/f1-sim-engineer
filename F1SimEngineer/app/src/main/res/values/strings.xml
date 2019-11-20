@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">F1SimEngineer</string>
+    <string name="select_track">Select a Track:</string>
 </resources>
