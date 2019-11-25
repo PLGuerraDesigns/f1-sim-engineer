@@ -33,11 +33,26 @@ public class PacketHeader {
     }
 
 
+    public String getpacketType(){
+        switch(packetId){
+            case 0: return "Motion";
+            case 1: return "Session";
+            case 2: return "Lap Data";
+            case 3: return "Event";
+            case 4: return "Participants";
+            case 5: return "Car Setups";
+            case 6: return "Car Telemetry";
+            case 7: return "Car Status";
+            default: return "-";
+        }
+    }
+
     @Override
     public String toString() {
+        String packettype  =getpacketType();
         return "Format: " + packetFormat + "\n"
                 + "Version: " + packetVersion + "\n"
-                + "ID: " + packetId + "\n"
+                + "ID: " + packetId + " " + packettype + "\n"
                 + "Session UID: " + sessionUID + "\n"
                 + "Session Time: " + sessionTime + "\n"
                 + "Frame Identifier: " + frameIdentifier + "\n"
