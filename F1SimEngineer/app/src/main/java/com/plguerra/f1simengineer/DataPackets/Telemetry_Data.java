@@ -4,21 +4,21 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 
 public class Telemetry_Data {
-    int     speed;                      // Speed of car in kilometres per hour
-    float   throttle;                   // Amount of throttle applied (0.0 to 1.0)
-    float   steer;                      // Steering (-1.0 (full lock left) to 1.0 (full lock right))
-    float   brake;                      // Amount of brake applied (0.0 to 1.0)
-    short   clutch;                     // Amount of clutch applied (0 to 100)
-    short   gear;                       // Gear selected (1-8, N=0, R=-1)
-    int     engineRPM;                  // Engine RPM
-    short   drs;                        // 0 = off, 1 = on
-    short   revLightsPercent;           // Rev lights indicator (percentage)
-    int     brakesTemperature[];        // Brakes temperature (celsius)
-    int     tyresSurfaceTemperature[];  // Tyres surface temperature (celsius)
-    int     tyresInnerTemperature[];    // Tyres inner temperature (celsius)
-    int     engineTemperature;          // Engine temperature (celsius)
-    float   tyresPressure[];            // Tyres pressure (PSI)
-    short   surfaceType[];              // Driving surface, see appendices
+    public static int     speed;                      // Speed of car in kilometres per hour
+    public static float   throttle;                   // Amount of throttle applied (0.0 to 1.0)
+    public static float   steer;                      // Steering (-1.0 (full lock left) to 1.0 (full lock right))
+    public static float   brake;                      // Amount of brake applied (0.0 to 1.0)
+    public static short   clutch;                     // Amount of clutch applied (0 to 100)
+    public static short   gear;                       // Gear selected (1-8, N=0, R=-1)
+    public static int     engineRPM;                  // Engine RPM
+    public static short   drs;                        // 0 = off, 1 = on
+    public static short   revLightsPercent;           // Rev lights indicator (percentage)
+    public static int     brakesTemperature[];        // Brakes temperature (celsius)
+    public static int     tyresSurfaceTemperature[];  // Tyres surface temperature (celsius)
+    public static int     tyresInnerTemperature[];    // Tyres inner temperature (celsius)
+    public static int     engineTemperature;          // Engine temperature (celsius)
+    public static float   tyresPressure[];            // Tyres pressure (PSI)
+    public static short   surfaceType[];              // Driving surface, see appendices
     
 
     public Telemetry_Data(byte[] content) {

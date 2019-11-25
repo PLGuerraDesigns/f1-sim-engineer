@@ -7,26 +7,26 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Lap_Data {
-    float   lastLapTime;	       	// Last lap time in seconds
-    float   currentLapTime;	        // Current time around the lap in seconds
-    float   bestLapTime;		    // Best lap time of the session in seconds
-    float   sector1Time;		    // Sector 1 time in seconds
-    float   sector2Time;		    // Sector 2 time in seconds
-    float   lapDistance;		    // Distance vehicle is around current lap in metres – could
+    public float   lastLapTime;	       	// Last lap time in seconds
+    public float   currentLapTime;	        // Current time around the lap in seconds
+    public float   bestLapTime;		    // Best lap time of the session in seconds
+    public float   sector1Time;		    // Sector 1 time in seconds
+    public float   sector2Time;		    // Sector 2 time in seconds
+    public float   lapDistance;		    // Distance vehicle is around current lap in metres – could
                                     // be negative if line hasn’t been crossed yet
-    float   totalDistance;		    // Total distance travelled in session in metres – could
+    public float   totalDistance;		    // Total distance travelled in session in metres – could
                                     // be negative if line hasn’t been crossed yet
-    float   safetyCarDelta;         // Delta in seconds for safety car
-    short   carPosition;   	        // Car race position
-    short   currentLapNum;		    // Current lap number
-    short   pitStatus;            	// 0 = none, 1 = pitting, 2 = in pit area
-    short   sector;               	// 0 = sector1, 1 = sector2, 2 = sector3
-    short   currentLapInvalid;    	// Current lap invalid - 0 = valid, 1 = invalid
-    short   penalties;            	// Accumulated time penalties in seconds to be added
-    short   gridPosition;         	// Grid position the vehicle started the race in
-    short   driverStatus;         	// Status of driver - 0 = in garage, 1 = flying lap
+    public float   safetyCarDelta;         // Delta in seconds for safety car
+    public short   carPosition;   	        // Car race position
+    public short   currentLapNum;		    // Current lap number
+    public short   pitStatus;            	// 0 = none, 1 = pitting, 2 = in pit area
+    public short   sector;               	// 0 = sector1, 1 = sector2, 2 = sector3
+    public short   currentLapInvalid;    	// Current lap invalid - 0 = valid, 1 = invalid
+    public short   penalties;            	// Accumulated time penalties in seconds to be added
+    public short   gridPosition;         	// Grid position the vehicle started the race in
+    public short   driverStatus;         	// Status of driver - 0 = in garage, 1 = flying lap
                                     // 2 = in lap, 3 = out lap, 4 = on track
-    short   resultStatus;           // Result status - 0 = invalid, 1 = inactive, 2 = active
+    public short   resultStatus;           // Result status - 0 = invalid, 1 = inactive, 2 = active
                                     // 3 = finished, 4 = disqualified, 5 = not classified
                                     // 6 = retired
 
