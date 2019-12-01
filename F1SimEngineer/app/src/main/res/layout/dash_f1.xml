@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:background="@color/black">
+    android:layout_height="match_parent" android:background="@color/black"
+    android:keepScreenOn="true">
 
 
     <LinearLayout
@@ -25,7 +26,7 @@
             android:id="@+id/Speed"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="149 KPH"
+            android:text="0 KPH"
             android:textSize="35dp"
             android:textColor="@color/white"
             android:textAlignment="center"
@@ -44,7 +45,7 @@
             android:id="@+id/Position"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="3"
+            android:text="0"
             android:textSize="35dp"
             android:textColor="@color/white"
             android:textAlignment="center"
@@ -63,11 +64,147 @@
             android:id="@+id/Laps"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="5/25"
+            android:text="0/0"
             android:textSize="35dp"
             android:textColor="@color/white"
             android:textAlignment="center"
             android:paddingVertical="5dp"/>
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.8"
+        android:background="@drawable/customborder">
+
+        <LinearLayout
+            android:id="@+id/Limiter"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/customborder">
+
+        <TextView
+            android:id="@+id/Gear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="N"
+            android:textSize="120dp"
+            android:textColor="@color/red"
+            android:fontFamily="@font/lemon_milk"
+            android:layout_gravity="center_horizontal"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/customborder">
+
+            <TextView
+                android:id="@+id/Time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="00:00.000"
+                android:textSize="50dp"
+                android:textColor="@color/white"
+                android:textAlignment="center"/>
+
+
+            <TextView
+                android:id="@+id/Fuel_Remaining"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Not Connected"
+                android:textSize="20dp"
+                android:textColor="@color/white"
+                android:textAlignment="center"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:paddingVertical="25dp"
+                android:paddingHorizontal="10dp">
+
+            <ImageView
+            android:id="@+id/Weather"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/clear"/>
+
+            <ImageView
+                android:id="@+id/Tyre"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/c3"/>
+
+            <ImageView
+                android:id="@+id/DRS"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:src="@drawable/drs_off"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:paddingTop="10dp"
+        android:background="@drawable/customborder">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Best Lap"
+            android:textSize="20dp"
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            android:background="@drawable/customborder2"/>
+
+        <TextView
+            android:id="@+id/Best_Lap"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:textSize="35dp"
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            android:paddingVertical="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Last Lap"
+            android:textSize="20dp"
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            android:background="@drawable/customborder2"/>
+
+        <TextView
+            android:id="@+id/Last_Lap"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:textSize="35dp"
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            android:paddingVertical="10dp"/>
 
 
         <TextView
@@ -84,15 +221,15 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingVertical="5dp">
+            android:paddingTop="5dp">
 
             <TextView
                 android:id="@+id/Tyre_Health_FL"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="100"
+                android:text="0"
                 android:textSize="25dp"
-                android:textColor="@color/green"
+                android:textColor="@color/white"
                 android:textAlignment="center"
                 android:layout_weight="1"/>
 
@@ -100,9 +237,9 @@
                 android:id="@+id/Tyre_Health_FR"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="100"
+                android:text="0"
                 android:textSize="25dp"
-                android:textColor="@color/green"
+                android:textColor="@color/white"
                 android:textAlignment="center"
                 android:layout_weight="1"/>
 
@@ -113,15 +250,15 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingVertical="5dp">
+            android:paddingBottom="5dp">
 
             <TextView
                 android:id="@+id/Tyre_Health_RL"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="100"
+                android:text="0"
                 android:textSize="25dp"
-                android:textColor="@color/green"
+                android:textColor="@color/white"
                 android:textAlignment="center"
                 android:layout_weight="1"/>
 
@@ -129,109 +266,14 @@
                 android:id="@+id/Tyre_Health_RR"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="100"
+                android:text="0"
                 android:textSize="25dp"
-                android:textColor="@color/green"
+                android:textColor="@color/white"
                 android:textAlignment="center"
                 android:layout_weight="1"/>
 
 
         </LinearLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="0.8"
-        android:background="@drawable/customborder">
-
-        <TextView
-            android:id="@+id/Gear"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="6"
-            android:textSize="120dp"
-            android:textColor="@color/red"
-            android:fontFamily="@font/lemon_milk"
-            android:layout_gravity="center_horizontal"/>
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/customborder">
-
-            <TextView
-                android:id="@+id/Time"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="01:11.051"
-                android:textSize="50dp"
-                android:textColor="@color/white"
-                android:textAlignment="center"/>
-
-            <TextView
-                android:id="@+id/LapDelta"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="+0.512"
-                android:textSize="30dp"
-                android:textColor="@color/red"
-                android:textAlignment="center"/>
-
-        </LinearLayout>
-
-
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:paddingVertical="10dp"
-        android:background="@drawable/customborder">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Car Ahead"
-            android:textSize="20dp"
-            android:textColor="@color/white"
-            android:textAlignment="center"
-            android:background="@drawable/customborder2"/>
-
-        <TextView
-            android:id="@+id/Car_Ahead"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="0.000"
-            android:textSize="35dp"
-            android:textColor="@color/white"
-            android:textAlignment="center"
-            android:paddingVertical="10dp"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Car Behind"
-            android:textSize="20dp"
-            android:textColor="@color/white"
-            android:textAlignment="center"
-            android:background="@drawable/customborder2"/>
-
-        <TextView
-            android:id="@+id/Car_Behind"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="0.000"
-            android:textSize="35dp"
-            android:textColor="@color/white"
-            android:textAlignment="center"
-            android:paddingVertical="10dp"/>
 
 
 

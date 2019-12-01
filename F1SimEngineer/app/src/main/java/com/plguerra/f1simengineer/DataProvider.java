@@ -56,7 +56,6 @@ public class DataProvider extends ContentProvider {
             PHOTO_TABLE_COL_TEAM + " TEXT, " +
             PHOTO_TABLE_COL_TYRETYPE + " TEXT, " +
             PHOTO_TABLE_COL_LAPS + " TEXT, " +
-            PHOTO_TABLE_COL_LAPS + " TEXT, " +
             PHOTO_TABLE_COL_TOPSPEED + " TEXT, " +
             PHOTO_TABLE_COL_AVGSPEED + " TEXT, " +
             PHOTO_TABLE_COL_POSITION + " TEXT, " +

@@ -128,15 +128,13 @@ public class CarStatus_Data {
 
     public String getTyreCompound(){
         switch(actualTyreCompound){
-            case 0: return "HYPER SOFT";
-            case 1: return "ULTRA SOFT";
-            case 2: return "SUPER SOFT";
-            case 3: return "SOFT";
-            case 4: return "MEDIUM";
-            case 5: return "HARD";
-            case 6: return "SUPER HARD";
-            case 7: return "INTER";
-            case 8: return "WET";
+            case 16: return "C1";
+            case 17: return "C2";
+            case 18: return "C3";
+            case 19: return "C4";
+            case 20: return "C5";
+            case 7: return "Inter";
+            case 8: return "Wet";
             default: return "";
         }
     }

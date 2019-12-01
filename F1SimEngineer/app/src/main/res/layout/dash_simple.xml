@@ -6,11 +6,11 @@
 
 
     <TextView
-        android:id="@+id/gear"
+        android:id="@+id/Gear"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:text="1"
-        android:textSize="350dp"
+        android:textSize="250dp"
         android:textColor="@color/red"
         android:fontFamily="@font/lemon_milk"
         android:layout_centerHorizontal="true"

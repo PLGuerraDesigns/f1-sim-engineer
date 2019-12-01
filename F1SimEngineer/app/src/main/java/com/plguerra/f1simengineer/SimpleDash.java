@@ -1,6 +1,7 @@
 package com.plguerra.f1simengineer;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,19 +13,21 @@ import androidx.fragment.app.Fragment;
 
 public class SimpleDash extends Fragment {
     static TextView gearView;
+    private static String Tag;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.dash_simple,container,false);
-//        gearView = (TextView) view.findViewById(R.id.gear);
+        gearView = (TextView) view.findViewById(R.id.Gear);
 
-//        updateSimpleFragment("2");
+//        updateSimpleFragment();
         return view;
     }
 
 
-    public static void updateSimpleFragment(String stringData) {
-        gearView.setText(stringData);
+    public static void updateSimpleFragment() {
+//        gearView.setText("5");
+        Log.d(Tag,"Called Properly" );
     }
 }
