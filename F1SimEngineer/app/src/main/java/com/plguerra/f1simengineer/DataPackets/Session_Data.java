@@ -1,6 +1,5 @@
 package com.plguerra.f1simengineer.DataPackets;
 
-import com.plguerra.f1simengineer.BuildConfig;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 
@@ -47,18 +46,6 @@ public class Session_Data {
         numMarshalZones = (short) bb.get();
     }
 
-
-    public String getWeather(){
-        switch(weather){
-            case 0: return "Clear";
-            case 1: return "Light Cloud";
-            case 2: return "Overcast";
-            case 3: return "Light Rain";
-            case 4: return "Heavy Rain";
-            case 5: return "Storm";
-            default: return "";
-        }
-    }
 
     public String getTrack(){
         switch(trackId){
@@ -110,21 +97,6 @@ public class Session_Data {
         }
     }
 
-
-    public String getFormula(){
-        switch(formula){
-            case 0: return "Modern";
-            case 1: return "Classic";
-            case 2: return "F2";
-            case 3: return "F1 Generic";
-            default: return "";
-        }
-    }
-
-    public String getSessionTimeLeft(){
-        return printFormattedSeconds(sessionTimeLeft);
-    }
-
     public String getSessionDuration(){
         return printFormattedSeconds(sessionDuration);
     }
@@ -140,24 +112,4 @@ public class Session_Data {
             return String.format("%d:%02d", minutes, seconds);
     }
 
-
-    @Override
-    public String toString(){
-        String ret = "Weather: "+getWeather()+"\n";
-        ret += "Track Temperature: "+trackTemperature+" ºC\n";
-        ret += "Air Temperature: "+airTemperature+" ºC\n";
-        ret += "Total laps: "+totalLaps+" laps\n";
-        ret += "Track Length: "+trackLength+" m\n";
-        ret += "Session Type: "+getSessionType()+"\n";
-        ret += "Track: "+getTrack()+"\n";
-        ret += "Era: "+getFormula()+"\n";
-        ret += "Session Time Left: "+getSessionTimeLeft()+"\n";
-        ret += "Session Duration: "+getSessionDuration()+"\n";
-        ret += "Pit Speed Limit: "+pitSpeedLimit+"\n";
-        ret += "Game paused: "+gamePaused+"\n";
-        ret += "Spectator Car Index: "+  spectatorCarIndex+"\n";
-        ret += "Marshal Zones: "+ numMarshalZones+"\n";
-
-        return ret;
-    }
 }

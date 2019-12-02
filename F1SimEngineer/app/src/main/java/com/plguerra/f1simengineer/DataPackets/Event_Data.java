@@ -1,9 +1,7 @@
 package com.plguerra.f1simengineer.DataPackets;
 
-import java.lang.reflect.Array;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-import java.util.Arrays;
 
 public class Event_Data {
     public short eventStringCode[];     // Event string code, see below

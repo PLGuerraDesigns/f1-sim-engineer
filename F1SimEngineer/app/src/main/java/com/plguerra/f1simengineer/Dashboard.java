@@ -13,29 +13,24 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.viewpager.widget.ViewPager;
 
-import com.plguerra.f1simengineer.DataPackets.CarSetup_Data;
-import com.plguerra.f1simengineer.DataPackets.CarStatus_Data;
+import com.plguerra.f1simengineer.DataPackets.CarStatus_Packet;
 import com.plguerra.f1simengineer.DataPackets.Event_Data;
-import com.plguerra.f1simengineer.DataPackets.Lap_Data;
-import com.plguerra.f1simengineer.DataPackets.Motion_Data;
+import com.plguerra.f1simengineer.DataPackets.Lap_Packet;
 import com.plguerra.f1simengineer.DataPackets.PacketHeader;
+import com.plguerra.f1simengineer.DataPackets.Participants_Packet;
 import com.plguerra.f1simengineer.DataPackets.Session_Data;
-import com.plguerra.f1simengineer.DataPackets.Telemetry_Data;
+import com.plguerra.f1simengineer.DataPackets.Telemetry_Packet;
+
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
-import java.net.SocketException;
 import java.text.DateFormat;
 import java.util.Arrays;
 import java.util.Calendar;
 
 public class Dashboard extends AppCompatActivity{
-//    private ViewPager viewPager;
-//    private int[] layouts = {R.layout.dash_f1,R.layout.dash_simple};
-//    private  CustomPageAdapter customPageAdapter;
+    private static final String TAG = "Dashboard";
 
     public TextView gear;
     public TextView speed;
@@ -54,40 +49,40 @@ public class Dashboard extends AppCompatActivity{
     public ImageView tyre_compound;
     LinearLayout limiter;
 
-    boolean carSetup_Received = false;
     boolean carStatus_Received = false;
     boolean event_Received = false;
     boolean lap_Received = false;
-    boolean motion_Received = false;
     boolean session_Received = false;
     boolean telemetry_Received = false;
     boolean data_Received = false;
+    boolean participants_Received = false;
+    public boolean running;
     int topSpeed = 0;
     int speedSum = 0;
     int speedCount = 0;
-    float BestS1 = 0;
-    float BestS2 = 0;
-    float BestS3 = 0;
-    float totalLapTime = 0;
-    int lastLapNum = 1;
+    float BestS1 = 9999;
+    float BestS2 = 9999;
+    float BestS3 = 9999;
+//    float totalLapTime = 0;
+//    int lastLapNum = 1;
+    int playerID = 0;
     public static int MAX_BUFFER = 2048;
-    private static final String TAG = "Dashboard";
+
     PacketHeader packetheader;
-    CarSetup_Data carsetup_data;
-    CarStatus_Data carstatus_data;
-    final Handler handler = new Handler();
-    Lap_Data lap_data;
-    Motion_Data motion_data;
-    public Boolean running;
+    CarStatus_Packet carStatus_packet;
     Session_Data session_data;
-    Telemetry_Data telemetry_data;
     Event_Data event_Data;
+    Lap_Packet lap_packet;
+    Telemetry_Packet telemetry_packet;
+    Participants_Packet participants_packet;
+
+    final Handler handler = new Handler();
 
 
 
     public void onStop() {
         super.onStop();
-        running = Boolean.valueOf(false);
+        running = false;
     }
 
     @Override
@@ -113,13 +108,6 @@ public class Dashboard extends AppCompatActivity{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dash_f1);
-//        viewPager = findViewById(R.id.viewpager);
-//        customPageAdapter = new CustomPageAdapter(layouts,this);
-//        viewPager.setAdapter(customPageAdapter);
-
-
-//        getSupportFragmentManager().beginTransaction().replace(R.id.Fragment_Container, new SimpleDash()).commit();
-//        SimpleDash.updateSimpleFragment("5");
 
         gear = findViewById(R.id.Gear);
         speed = findViewById(R.id.Speed);
@@ -140,7 +128,7 @@ public class Dashboard extends AppCompatActivity{
 
 
         startServerSocket();
-        running = Boolean.valueOf(true);
+        running = true;
     }
 
     private void startServerSocket() {
@@ -154,14 +142,12 @@ public class Dashboard extends AppCompatActivity{
                     DatagramPacket datagramPacket = new DatagramPacket(msg, msg.length);
 
 
-                while (running.booleanValue()) {
+                while (running) {
                     datagramSocket.receive(datagramPacket);
 
-                        packetheader = new PacketHeader(msg);
-                        UnpackData(packetheader.packetId, msg);
-//                        updateView();
-
-//                        updateUI(packet.toString());
+                    packetheader = new PacketHeader(msg);
+                    playerID = packetheader.playerCarIndex;
+                    UnpackData(packetheader.packetId, msg);
                 }
                 }
                 catch (IOException e) {
@@ -181,7 +167,9 @@ public class Dashboard extends AppCompatActivity{
 
         if(data_Received) {
             myCV.put(DataProvider.PHOTO_TABLE_COL_DATE, currentDate);
-            myCV.put(DataProvider.PHOTO_TABLE_COL_TEAM, "Mercedes"); // Add participants
+            if (participants_Received) {
+                myCV.put(DataProvider.PHOTO_TABLE_COL_TEAM, participants_packet.ParticipantDataList.get(playerID).getTeam());
+            }
 
             if (session_Received) {
                 myCV.put(DataProvider.PHOTO_TABLE_COL_SESSTYPE, session_data.getSessionType());
@@ -189,16 +177,18 @@ public class Dashboard extends AppCompatActivity{
                 myCV.put(DataProvider.PHOTO_TABLE_COL_SESSTIME, session_data.getSessionDuration());
             }
             if (carStatus_Received) {
-                myCV.put(DataProvider.PHOTO_TABLE_COL_TYRETYPE, carstatus_data.getTyreCompound());
+                myCV.put(DataProvider.PHOTO_TABLE_COL_TYRETYPE, carStatus_packet.CarStatusList.get(playerID).getTyreCompound());
             }
             if (lap_Received) {
-                myCV.put(DataProvider.PHOTO_TABLE_COL_LAPS, lap_data.currentLapNum);
-                myCV.put(DataProvider.PHOTO_TABLE_COL_POSITION, lap_data.carPosition);
-                myCV.put(DataProvider.PHOTO_TABLE_COL_BESTLAP, lap_data.getBestLapTime(true));
-                myCV.put(DataProvider.PHOTO_TABLE_COL_AVGTIME, (totalLapTime / (lap_data.currentLapNum - 1)));
-                myCV.put(DataProvider.PHOTO_TABLE_COL_BESTSECTOR1, BestS1);
-                myCV.put(DataProvider.PHOTO_TABLE_COL_BESTSECTOR2, BestS2);
-                myCV.put(DataProvider.PHOTO_TABLE_COL_BESTSECTOR3, BestS3);
+                myCV.put(DataProvider.PHOTO_TABLE_COL_LAPS, lap_packet.LapDataList.get(playerID).currentLapNum);
+                myCV.put(DataProvider.PHOTO_TABLE_COL_POSITION, lap_packet.LapDataList.get(playerID).carPosition);
+                myCV.put(DataProvider.PHOTO_TABLE_COL_BESTLAP, lap_packet.LapDataList.get(playerID).getBestLapTime(true));
+//                myCV.put(DataProvider.PHOTO_TABLE_COL_AVGTIME, (totalLapTime / (lap_packet.LapDataList.get(playerID).currentLapNum - 1)));
+                if(BestS1 != 9999) {
+                    myCV.put(DataProvider.PHOTO_TABLE_COL_BESTSECTOR1, BestS1);
+                    myCV.put(DataProvider.PHOTO_TABLE_COL_BESTSECTOR2, BestS2);
+                    myCV.put(DataProvider.PHOTO_TABLE_COL_BESTSECTOR3, BestS3);
+                }
             }
             if(telemetry_Received){
                 myCV.put(DataProvider.PHOTO_TABLE_COL_TOPSPEED, topSpeed);
@@ -206,12 +196,29 @@ public class Dashboard extends AppCompatActivity{
             }
 
             getContentResolver().insert(DataProvider.CONTENT_URI, myCV);
-//            Toast.makeText(this, "Session Saved.", Toast.LENGTH_SHORT).show();
+            showToast("Session Saved.");
+            carStatus_Received = false;
+            event_Received = false;
+            lap_Received = false;
+            session_Received = false;
+            telemetry_Received = false;
+            data_Received = false;
+            participants_Received = false;
 
         }
-//        else{
-//            Toast.makeText(this, "No Session Data.", Toast.LENGTH_SHORT).show();
-//        }
+        else{
+            showToast("No Session Data.");
+        }
+    }
+
+    public void showToast(final String message)
+    {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                Toast.makeText(Dashboard.this, message, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void updateView() {
@@ -219,25 +226,26 @@ public class Dashboard extends AppCompatActivity{
             @SuppressLint("SetTextI18n")
             public void run() {
                 try {
-                    gear.setText(telemetry_data.getGear());
-                    speed.setText(String.valueOf(telemetry_data.speed));
-                    position.setText(String.valueOf(lap_data.carPosition));
+                    Log.d(TAG, "ID:" + packetheader.packetId);
+
+                    gear.setText(String.valueOf(telemetry_packet.TelemetryDataList.get(playerID).getGear()));
+                    speed.setText(String.valueOf(telemetry_packet.TelemetryDataList.get(playerID).speed));
+                    position.setText(String.valueOf(lap_packet.LapDataList.get(playerID).carPosition));
                     if(session_data.totalLaps > 1) {
-                        laps.setText(lap_data.currentLapNum + "/" + session_data.totalLaps);
+                        laps.setText(lap_packet.LapDataList.get(playerID).currentLapNum + "/" + session_data.totalLaps);
                     }
                     else{
-                        laps.setText(String.valueOf(lap_data.currentLapNum));
+                        laps.setText(String.valueOf(lap_packet.LapDataList.get(playerID).currentLapNum));
                     }
-                    tyre_health_RL.setText(String.valueOf(100-carstatus_data.tyresWear[0]));
-                    tyre_health_RR.setText(String.valueOf(100-carstatus_data.tyresWear[1]));
-                    tyre_health_FL.setText(String.valueOf(100-carstatus_data.tyresWear[2]));
-                    tyre_health_FR.setText(String.valueOf(100-carstatus_data.tyresWear[3]));
-                    time.setText(String.valueOf(lap_data.getCurrentLapTime(true)));
-                    best_Lap.setText(String.valueOf(lap_data.getBestLapTime(true)));
-                    last_Lap.setText(String.valueOf(lap_data.getLastLapTime(true)));
-//                    last_Lap.setText(String.valueOf(packet.playerCarIndex));
-//
-                    switch(carstatus_data.actualTyreCompound){
+                    tyre_health_RL.setText(String.valueOf(100-carStatus_packet.CarStatusList.get(playerID).tyresWear[0]));
+                    tyre_health_RR.setText(String.valueOf(100-carStatus_packet.CarStatusList.get(playerID).tyresWear[1]));
+                    tyre_health_FL.setText(String.valueOf(100-carStatus_packet.CarStatusList.get(playerID).tyresWear[2]));
+                    tyre_health_FR.setText(String.valueOf(100-carStatus_packet.CarStatusList.get(playerID).tyresWear[3]));
+                    time.setText(String.valueOf(lap_packet.LapDataList.get(playerID).getCurrentLapTime(true)));
+                    best_Lap.setText(String.valueOf(lap_packet.LapDataList.get(playerID).getBestLapTime(true)));
+                    last_Lap.setText(String.valueOf(lap_packet.LapDataList.get(playerID).getLastLapTime(true)));
+
+                    switch(carStatus_packet.CarStatusList.get(playerID).actualTyreCompound){
                         case 16:
                         case 11:
                             tyre_compound.setImageResource(R.drawable.c5);
@@ -247,12 +255,13 @@ public class Dashboard extends AppCompatActivity{
                             tyre_compound.setImageResource(R.drawable.c4);
                             break;
                         case 18:
-                        case 13:
                             tyre_compound.setImageResource(R.drawable.c3);
+                            break;
                         case 19:
                         case 14:
                         case 9:
                             tyre_compound.setImageResource(R.drawable.c2);
+                            break;
                         case 20:
                             tyre_compound.setImageResource(R.drawable.c1);
                             break;
@@ -293,23 +302,18 @@ public class Dashboard extends AppCompatActivity{
                                 break;
                     }
 
-                    if(telemetry_data.drs == 1){
+                    if(telemetry_packet.TelemetryDataList.get(playerID).drs == 1){
                         drs.setImageResource(R.drawable.drs_on);
                     }
                     else{
                         drs.setImageResource(R.drawable.drs_off);
                     }
 
-                    String fuel_formatted = String.format("%.2f", carstatus_data.fuelRemainingLaps);
-                    fuel_remaining.setText("Fuel Remaining: " + fuel_formatted + " Laps");
-                    if(carstatus_data.fuelRemainingLaps < 4){
-                        fuel_remaining.setTextColor(getResources().getColor(R.color.red,getResources().newTheme()));
-                    }
-                    else{
-                        fuel_remaining.setTextColor(getResources().getColor(R.color.white,getResources().newTheme()));
-                    }
+                    String fuel_formatted = String.format("%.2f", carStatus_packet.CarStatusList.get(playerID).fuelInTank)
+                            +"/"+String.format("%.2f", carStatus_packet.CarStatusList.get(playerID).fuelCapacity);
+                    fuel_remaining.setText("Fuel: " + fuel_formatted);
 
-                    if(telemetry_data.revLightsPercent > 60){
+                    if(telemetry_packet.TelemetryDataList.get(playerID).revLightsPercent > 60){
                         gear.setTextColor(getResources().getColor(R.color.white,getResources().newTheme()));
                         limiter.setBackgroundColor(getResources().getColor(R.color.red,getResources().newTheme()));
                     }
@@ -318,8 +322,8 @@ public class Dashboard extends AppCompatActivity{
                         limiter.setBackgroundColor(getResources().getColor(R.color.black,getResources().newTheme()));
                     }
 
-                    if(telemetry_data.speed > topSpeed){
-                        topSpeed = telemetry_data.speed;
+                    if(telemetry_packet.TelemetryDataList.get(playerID).speed > topSpeed){
+                        topSpeed = telemetry_packet.TelemetryDataList.get(playerID).speed;
                     }
 
                 } catch (Exception e) {
@@ -335,33 +339,33 @@ public class Dashboard extends AppCompatActivity{
         data_Received = true;
 
         switch (packetId) {
-            case 0:
-                motion_data = new Motion_Data(Arrays.copyOfRange(packet, PacketHeader.HEADER_SIZE, packet.length - 1));
-                motion_Received = true;
-                break;
             case 1:
                 session_data = new Session_Data(Arrays.copyOfRange(packet, PacketHeader.HEADER_SIZE, packet.length - 1));
                 session_Received = true;
                 break;
             case 2:
-                lap_data = new Lap_Data(Arrays.copyOfRange(packet, PacketHeader.HEADER_SIZE, packet.length - 1));
+                lap_packet = new Lap_Packet(packet);
                 lap_Received = true;
-                try {
-                    if (BestS1 > Float.valueOf(lap_data.getSector1Time(true))) {
-                        BestS1 = Float.valueOf(lap_data.getSector1Time(true));
+                if(lap_packet.LapDataList.get(playerID).currentLapNum > 1){
+                    if(lap_packet.LapDataList.get(playerID).sector1Time != 0.0) {
+                        if (BestS1 > lap_packet.LapDataList.get(playerID).sector1Time) {
+                            BestS1 = lap_packet.LapDataList.get(playerID).sector1Time;
+                        }
                     }
-                    if (BestS2 > Float.valueOf(lap_data.getSector2Time(true))) {
-                        BestS2 = Float.valueOf(lap_data.getSector2Time(true));
+                    if(lap_packet.LapDataList.get(playerID).sector2Time != 0.0){
+                        if (BestS2 > lap_packet.LapDataList.get(playerID).sector2Time) {
+                            BestS2 = lap_packet.LapDataList.get(playerID).sector2Time;
+                        }
                     }
-                    if (BestS3 > Float.valueOf(lap_data.getSector3Time(true))) {
-                        BestS3 = Float.valueOf(lap_data.getSector3Time(true));
+                    if(Float.valueOf(lap_packet.LapDataList.get(playerID).getSector3Time(false)) != 0.0) {
+                        if (BestS3 > Float.valueOf(lap_packet.LapDataList.get(playerID).getSector3Time(false))) {
+                            BestS3 = Float.valueOf(lap_packet.LapDataList.get(playerID).getSector3Time(false));
+                        }
                     }
-                    if (lap_data.currentLapNum > lastLapNum) {
-                        totalLapTime = lap_data.lastLapTime;
-                        lastLapNum = lap_data.currentLapNum;
-                    }
-                }catch (Exception e){
-                    e.printStackTrace();
+//                    if (lap_packet.LapDataList.get(playerID).currentLapNum > lastLapNum) {
+//                        totalLapTime = lap_packet.LapDataList.get(playerID).lastLapTime;
+//                        lastLapNum = lap_packet.LapDataList.get(playerID).currentLapNum;
+//                    }
                 }
 
                 break;
@@ -373,21 +377,18 @@ public class Dashboard extends AppCompatActivity{
                 }
                 break;
             case 4:
-                //Might not be used
-                break;
-            case 5:
-                carsetup_data = new CarSetup_Data(Arrays.copyOfRange(packet, PacketHeader.HEADER_SIZE, packet.length - 1));
-                carSetup_Received = true;
+                participants_packet = new Participants_Packet(packet);
+                participants_Received = true;
                 break;
             case 6:
-                telemetry_data = new Telemetry_Data(Arrays.copyOfRange(packet, PacketHeader.HEADER_SIZE, packet.length - 1));
+                telemetry_packet = new Telemetry_Packet(packet);
                 telemetry_Received = true;
-                speedSum += telemetry_data.speed;
+                speedSum += telemetry_packet.TelemetryDataList.get(playerID).speed;
                 speedCount++;
                 updateView();
                 break;
             case 7:
-                carstatus_data = new CarStatus_Data(Arrays.copyOfRange(packet, PacketHeader.HEADER_SIZE, packet.length - 1));
+                carStatus_packet = new CarStatus_Packet(packet);
                 carStatus_Received = true;
                 break;
             default:
