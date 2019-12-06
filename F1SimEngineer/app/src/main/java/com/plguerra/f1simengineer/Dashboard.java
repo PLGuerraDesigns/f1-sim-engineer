@@ -1,8 +1,9 @@
 package com.plguerra.f1simengineer;
 
-import android.annotation.SuppressLint;
+
 import android.content.ContentValues;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -57,6 +58,7 @@ public class Dashboard extends AppCompatActivity{
     boolean data_Received = false;
     boolean participants_Received = false;
     public boolean running;
+    int port = 2777;
     int topSpeed = 0;
     int speedSum = 0;
     int speedCount = 0;
@@ -101,6 +103,12 @@ public class Dashboard extends AppCompatActivity{
 
                 })
                 .setNegativeButton("Cancel", null)
+                .setNeutralButton("Do not Save", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+                })
                 .show();
     }
 
@@ -108,6 +116,8 @@ public class Dashboard extends AppCompatActivity{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dash_f1);
+        SharedPreferences sharedPref;
+        sharedPref = getSharedPreferences("myPref", MODE_PRIVATE);
 
         gear = findViewById(R.id.Gear);
         speed = findViewById(R.id.Speed);
@@ -126,7 +136,7 @@ public class Dashboard extends AppCompatActivity{
         weather = findViewById(R.id.Weather);
         tyre_compound = findViewById(R.id.Tyre);
 
-
+        port = Integer.valueOf(sharedPref.getString("PortInfo", "2777"));
         startServerSocket();
         running = true;
     }
@@ -137,7 +147,7 @@ public class Dashboard extends AppCompatActivity{
             @Override
             public void run() {
                 try{
-                    DatagramSocket datagramSocket = new DatagramSocket(20777);
+                    DatagramSocket datagramSocket = new DatagramSocket(port);
                     byte[] msg = new byte[Dashboard.MAX_BUFFER];
                     DatagramPacket datagramPacket = new DatagramPacket(msg, msg.length);
 
@@ -223,7 +233,6 @@ public class Dashboard extends AppCompatActivity{
 
     private void updateView() {
         handler.post(new Runnable() {
-            @SuppressLint("SetTextI18n")
             public void run() {
                 try {
                     Log.d(TAG, "ID:" + packetheader.packetId);

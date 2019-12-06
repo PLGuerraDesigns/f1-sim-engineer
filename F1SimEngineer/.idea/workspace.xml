@@ -12,11 +12,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3aae94ab-7642-405c-ac22-a955c66f4271" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/plguerra/f1simengineer/DataPackets/CarStatus_Packet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/plguerra/f1simengineer/DataPackets/Lap_Packet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/plguerra/f1simengineer/DataPackets/Participants_Data.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/plguerra/f1simengineer/DataPackets/Participants_Packet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/plguerra/f1simengineer/DataPackets/Telemetry_Packet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/plguerra/f1simengineer/SettingsActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/settings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -26,21 +23,11 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.4.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/plguerra/f1simengineer/CustomPageAdapter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/plguerra/f1simengineer/Dashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/plguerra/f1simengineer/Dashboard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/plguerra/f1simengineer/DataPackets/CarSetup_Data.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/plguerra/f1simengineer/DataPackets/CarStatus_Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/plguerra/f1simengineer/DataPackets/CarStatus_Data.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/plguerra/f1simengineer/DataPackets/Event_Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/plguerra/f1simengineer/DataPackets/Event_Data.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/plguerra/f1simengineer/DataPackets/Lap_Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/plguerra/f1simengineer/DataPackets/Lap_Data.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/plguerra/f1simengineer/DataPackets/Motion_Data.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/plguerra/f1simengineer/DataPackets/PacketHeader.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/plguerra/f1simengineer/DataPackets/PacketHeader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/plguerra/f1simengineer/DataPackets/Session_Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/plguerra/f1simengineer/DataPackets/Session_Data.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/plguerra/f1simengineer/DataPackets/Telemetry_Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/plguerra/f1simengineer/DataPackets/Telemetry_Data.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/plguerra/f1simengineer/DataProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/plguerra/f1simengineer/DataProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/plguerra/f1simengineer/SimpleDash.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/dash_f1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/dash_f1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/dash_simple.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/dashboard_view.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/plguerra/f1simengineer/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/plguerra/f1simengineer/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -54,7 +41,7 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="7ac0aa97" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="Pixel_3_API_27" />
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
@@ -67,16 +54,45 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/plguerra/f1simengineer/Dashboard.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2911">
-              <caret line="14" column="45" lean-forward="true" selection-start-line="14" selection-start-column="45" selection-end-line="14" selection-end-column="45" />
+            <state relative-caret-position="280">
+              <caret line="223" column="1" selection-start-line="223" selection-start-column="1" selection-end-line="231" selection-end-column="5" />
               <folding>
-                <element signature="e#7756#7934#0" expanded="true" />
-                <element signature="e#7933#7934#0" expanded="true" />
-                <element signature="e#7997#13797#0" expanded="true" />
-                <element signature="e#13796#13797#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/plguerra/f1simengineer/MainActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="14" column="43" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="43" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2010">
+              <caret line="134" column="56" selection-start-line="134" selection-start-column="56" selection-end-line="134" selection-end-column="56" />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer2" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/settings.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1200">
+              <caret line="80" column="17" selection-start-line="80" selection-start-column="17" selection-end-line="80" selection-end-column="17" />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer2" />
         </entry>
       </file>
     </leaf>
@@ -86,6 +102,7 @@
       <list>
         <option value="layoutResourceFile_vertical" />
         <option value="resourceFile" />
+        <option value="layoutResourceFile" />
         <option value="Class" />
       </list>
     </option>
@@ -141,13 +158,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/com/plguerra/f1simengineer/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/plguerra/f1simengineer/DataPackets/MarshalZone_Data.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/dashboard_simple.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/customborder.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/customborder.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/dash_simple.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/dashboard_view.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/plguerra/f1simengineer/SimpleDash.java" />
@@ -167,8 +181,14 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/plguerra/f1simengineer/DataPackets/Participants_Packet.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/plguerra/f1simengineer/DataPackets/Lap_Packet.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/plguerra/f1simengineer/DataPackets/CarStatus_Packet.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/plguerra/f1simengineer/Dashboard.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/plguerra/f1simengineer/DataPackets/CarStatus_Data.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/settings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/plguerra/f1simengineer/Dashboard.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/plguerra/f1simengineer/SettingsActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/plguerra/f1simengineer/MainActivity.java" />
       </list>
     </option>
   </component>
@@ -184,6 +204,7 @@
     <panes>
       <pane id="ProjectPane" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -194,12 +215,29 @@
             <path>
               <item name="F1SimEngineer" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="manifests" type="f94875db:AndroidManifestsGroupNode" />
+            </path>
+            <path>
+              <item name="F1SimEngineer" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
             </path>
             <path>
               <item name="F1SimEngineer" type="1abcf292:AndroidViewProjectNode" />
               <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="f1simengineer" type="cbb59c9e:AndroidPsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="F1SimEngineer" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="res" type="d4f16f75:AndroidResFolderNode" />
+            </path>
+            <path>
+              <item name="F1SimEngineer" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="drawable" type="ddeffd01:AndroidResFolderTypeNode" />
             </path>
             <path>
               <item name="F1SimEngineer" type="1abcf292:AndroidViewProjectNode" />
@@ -207,11 +245,16 @@
               <item name="res" type="d4f16f75:AndroidResFolderNode" />
               <item name="layout" type="ddeffd01:AndroidResFolderTypeNode" />
             </path>
+            <path>
+              <item name="F1SimEngineer" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="res" type="d4f16f75:AndroidResFolderNode" />
+              <item name="values" type="ddeffd01:AndroidResFolderTypeNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -327,10 +370,11 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" sideWeight="0.5023548" side_tool="true" weight="0.15307583" />
       <window_info id="Designer" order="1" />
-      <window_info active="true" content_ui="combo" id="Project" order="2" sideWeight="0.4976452" visible="true" weight="0.16881259" />
+      <window_info content_ui="combo" id="Project" order="2" sideWeight="0.4976452" visible="true" weight="0.16881259" />
       <window_info id="Structure" order="3" side_tool="true" />
       <window_info id="Build Variants" order="4" side_tool="true" weight="0.3297568" />
       <window_info id="Image Layers" order="5" />
@@ -339,19 +383,19 @@
       <window_info id="Favorites" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Run" order="0" weight="0.28025478" />
       <window_info anchor="bottom" id="TODO" order="1" weight="0.3299363" />
-      <window_info anchor="bottom" id="Android Profiler" order="2" />
+      <window_info anchor="bottom" id="Android Profiler" order="2" show_stripe_button="false" />
       <window_info anchor="bottom" id="Debug" order="3" />
       <window_info anchor="bottom" id="Terminal" order="4" weight="0.3299363" />
       <window_info anchor="bottom" id="Event Log" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="6" weight="0.3299363" />
       <window_info anchor="bottom" id="Build" order="7" visible="true" weight="0.09171975" />
-      <window_info anchor="bottom" id="Logcat" order="8" weight="0.2356688" />
+      <window_info anchor="bottom" id="Logcat" order="8" weight="0.44713375" />
       <window_info anchor="bottom" id="Find" order="9" weight="0.3299363" />
       <window_info anchor="right" id="Device File Explorer" order="0" side_tool="true" weight="0.3297568" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
       <window_info anchor="right" id="Gradle" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info anchor="right" id="Preview" order="4" weight="0.40128756" />
+      <window_info anchor="right" id="Preview" order="4" weight="0.3040057" />
       <window_info anchor="right" id="Palette&#9;" order="5" />
       <window_info anchor="right" id="Android WiFi ADB" order="6" weight="0.3297568" />
     </layout>
@@ -359,46 +403,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$USER_HOME$/Downloads/F1SimEngineer_com.plguerra.f1simengineer.apk" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/plguerra/f1simengineer/DataPackets/MarshalZone_Data.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/plguerra/f1simengineer/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="593">
-          <caret line="51" column="50" selection-start-line="51" selection-start-column="50" selection-end-line="51" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/customborder.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="62" lean-forward="true" selection-start-line="4" selection-start-column="62" selection-end-line="4" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="68" lean-forward="true" selection-start-line="68" selection-end-line="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="18" column="48" selection-start-line="18" selection-start-column="48" selection-end-line="18" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dash_simple.xml" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/plguerra/f1simengineer/CustomPageAdapter.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="37" lean-forward="true" selection-start-line="9" selection-start-column="37" selection-end-line="9" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-xxxhdpi/c2.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -416,33 +422,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../../../AndroidStudio/DeviceExplorer/oneplus-oneplus_a5000-7ac0aa97/data/data/com.plguerra.f1simengineer/databases/SessionDB" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/plguerra/f1simengineer/DataPackets/CarSetup_Data.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="51" column="5" selection-start-line="51" selection-start-column="5" selection-end-line="51" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/plguerra/f1simengineer/DataPackets/Motion_Data.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="48" column="4" selection-start-line="48" selection-start-column="4" selection-end-line="48" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/plguerra/f1simengineer/DataPackets/CarSetup_Data.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/plguerra/f1simengineer/DataPackets/Motion_Data.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/plguerra/f1simengineer/SimpleDash.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dashboard_view.xml" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dash_f1.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4">
-          <caret line="177" column="27" lean-forward="true" selection-start-line="177" selection-start-column="27" selection-end-line="177" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/plguerra/f1simengineer/DataPackets/Participants_Data.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
@@ -563,15 +546,79 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dash_f1.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2655">
+          <caret line="177" column="27" selection-start-line="177" selection-start-column="27" selection-end-line="177" selection-end-column="27" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="35" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-34">
+          <caret line="6" column="74" selection-start-line="6" selection-start-column="74" selection-end-line="6" selection-end-column="74" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-manifest" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/plguerra/f1simengineer/SettingsActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="25" column="32" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/customborder.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="7" selection-end-column="8" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/plguerra/f1simengineer/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="14" column="43" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/settings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1200">
+          <caret line="80" column="17" selection-start-line="80" selection-start-column="17" selection-end-line="80" selection-end-column="17" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2010">
+          <caret line="134" column="56" selection-start-line="134" selection-start-column="56" selection-end-line="134" selection-end-column="56" />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/plguerra/f1simengineer/Dashboard.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2911">
-          <caret line="14" column="45" lean-forward="true" selection-start-line="14" selection-start-column="45" selection-end-line="14" selection-end-column="45" />
+        <state relative-caret-position="280">
+          <caret line="223" column="1" selection-start-line="223" selection-start-column="1" selection-end-line="231" selection-end-column="5" />
           <folding>
-            <element signature="e#7756#7934#0" expanded="true" />
-            <element signature="e#7933#7934#0" expanded="true" />
-            <element signature="e#7997#13797#0" expanded="true" />
-            <element signature="e#13796#13797#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
