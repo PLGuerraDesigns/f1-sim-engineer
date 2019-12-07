@@ -10,6 +10,37 @@ public class TrackOverview_Data {
         trackId = (short) i;
     }
 
+    public String getTrackImage() {
+        switch(trackId) {
+            case 0: return "track_melbourne";
+            case 1: return "track_paulrichard";
+            case 2: return "track_shanghai";
+            case 3: return "track_melbourne";
+            case 4: return "track_catalunya";
+            case 5: return "track_monaco";
+            case 6: return "track_montreal";
+            case 7: return "track_silverstone";
+            case 8: return "track_hockenheim";
+            case 9: return "track_hungaroring";
+            case 10: return "track_spa";
+            case 11: return "track_monza";
+            case 12: return "track_singapore";
+            case 13: return "track_suzuka";
+            case 14: return "track_abudhabi";
+            case 15: return "track_texas";
+            case 16: return "track_brazil";
+            case 17: return "track_austria";
+            case 18: return "track_sochi";
+            case 19: return "track_mexico";
+            case 20: return "track_melbourne";
+            case 21: return "track_melbourne";
+            case 22: return "track_melbourne";
+            case 23: return "track_melbourne";
+            case 24: return "track_melbourne";
+            default: return "";
+        }
+    }
+
     public String getTrack(){
         switch(trackId){
             case 0: return "Melbourne";

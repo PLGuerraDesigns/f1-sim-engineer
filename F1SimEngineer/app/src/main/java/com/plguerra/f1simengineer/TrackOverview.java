@@ -1,6 +1,7 @@
 package com.plguerra.f1simengineer;
 
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -27,8 +28,8 @@ public class TrackOverview extends AppCompatActivity {
         llm.setOrientation(LinearLayoutManager.VERTICAL);
         recList.setLayoutManager(llm);
 
-        TrackOverviewAdapter ca = new TrackOverviewAdapter(createList(5));
-        recList.setAdapter(ca);
+        TrackOverviewAdapter trackOverviewAdapter = new TrackOverviewAdapter(createList(5));
+        recList.setAdapter(trackOverviewAdapter);
     }
 
     @Override
@@ -55,14 +56,20 @@ public class TrackOverview extends AppCompatActivity {
         for (int i=0; i <= size; i++) {
             TrackOverviewInfo toi = new TrackOverviewInfo();
             TrackOverview_Data data = new TrackOverview_Data(i);
+            toi.trackId = i;
             toi.trackName = data.getTrack();
             toi.sessionsNumber = TrackOverviewInfo.SESSION_PREFIX + i;
             toi.practiceNumber = TrackOverviewInfo.PRACTICE_PREFIX + i;
             toi.qualifyingNumber = TrackOverviewInfo.QUALIFYING_PREFIX + i;
             toi.raceNumber = TrackOverviewInfo.RACE_PREFIX + i;
+            if((i%2)== 0) {
+                toi.cardColor = Color.GRAY;
+            } else {
+                toi.cardColor = Color.BLACK;
+            }
+            toi.imageResource = getResources().getIdentifier("com.plguerra.f1simengineer:drawable/" + data.getTrackImage(), null, null);
 
             result.add(toi);
-
         }
 
         return result;

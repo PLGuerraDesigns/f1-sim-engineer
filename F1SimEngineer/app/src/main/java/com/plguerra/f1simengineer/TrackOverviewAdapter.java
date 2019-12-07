@@ -1,10 +1,16 @@
 package com.plguerra.f1simengineer;
 
+import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.view.LayoutInflater;
+import android.widget.Toast;
 
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -22,6 +28,7 @@ public class TrackOverviewAdapter extends RecyclerView.Adapter<TrackOverviewAdap
         return trackOverviewList.size();
     }
 
+
     @Override
     public void onBindViewHolder(TrackOverviewHolder trackOverviewHolder, int i) {
         TrackOverviewInfo toi = trackOverviewList.get(i);
@@ -30,6 +37,8 @@ public class TrackOverviewAdapter extends RecyclerView.Adapter<TrackOverviewAdap
         trackOverviewHolder.vPracticeNumber.setText(toi.practiceNumber);
         trackOverviewHolder.vQualifyingNumber.setText(toi.qualifyingNumber);
         trackOverviewHolder.vRaceNumber.setText(toi.raceNumber);
+        trackOverviewHolder.vCardView.setCardBackgroundColor(toi.cardColor);
+        trackOverviewHolder.vImageView.setImageResource(toi.imageResource);
     }
 
     @Override
@@ -48,6 +57,8 @@ public class TrackOverviewAdapter extends RecyclerView.Adapter<TrackOverviewAdap
         protected TextView vPracticeNumber;
         protected TextView vQualifyingNumber;
         protected TextView vRaceNumber;
+        protected CardView vCardView;
+        protected ImageView vImageView;
 
         public TrackOverviewHolder(View v) {
             super(v);
@@ -56,6 +67,15 @@ public class TrackOverviewAdapter extends RecyclerView.Adapter<TrackOverviewAdap
             vPracticeNumber = (TextView)  v.findViewById(R.id.practiceNumber);
             vQualifyingNumber = (TextView) v.findViewById(R.id.qualifyingNumber);
             vRaceNumber = (TextView) v.findViewById(R.id.raceNumber);
+            vCardView = (CardView) v.findViewById(R.id.card_view);
+            vImageView = (ImageView) v.findViewById(R.id.trackImage);
+            v.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(v.getContext(), SessionOverview.class);
+                    v.getContext().startActivity(intent);
+                }
+            });
         }
     }
 }

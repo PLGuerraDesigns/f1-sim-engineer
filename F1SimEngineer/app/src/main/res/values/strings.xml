@@ -1,4 +1,31 @@
 <resources>
     <string name="app_name">F1SimEngineer</string>
     <string name="select_track">Select a Track:</string>
+    <string name="select_session">Select a Session:</string>
+    <string name="Filter">Filter</string>
+    <string name="Sort">Sort</string>
+    <string name="sessionDate">Date: </string>
+    <string name="sessionLaps">Laps: </string>
+    <string name="sessionPos">Pos: </string>
+    <string name="sessionVehicle">Vehicle: </string>
+    <string name="sessionBestLap">Best Lap: </string>
+    <string name="sessionTire">Tire: </string>
+    <string name="numberOfLaps">Number of Laps: </string>
+    <string name="fastestLapTime">Fastest Lap Time: </string>
+    <string name="averageLapTime">Average Lap Time: </string>
+    <string name="sectorOneTime">Sector 1  time: </string>
+    <string name="sectorTwoTime">Sector 2 time: </string>
+    <string name="sectorThreeTime">Sector 3 time: </string>
+
+    <string-array name="filter_array">
+        <item>Practice</item>
+        <item>Qualifying</item>
+        <item>Races</item>
+    </string-array>
+    <string-array name="sort_array">
+        <item>Best lap</item>
+        <item>Laps</item>
+        <item>Position</item>
+        <item>Date</item>
+    </string-array>
 </resources>
