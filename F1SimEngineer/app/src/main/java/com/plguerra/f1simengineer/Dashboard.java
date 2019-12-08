@@ -58,7 +58,7 @@ public class Dashboard extends AppCompatActivity{
     boolean data_Received = false;
     boolean participants_Received = false;
     public boolean running;
-    int port = 2777;
+    int port = 20777;
     int topSpeed = 0;
     int speedSum = 0;
     int speedCount = 0;
@@ -136,7 +136,7 @@ public class Dashboard extends AppCompatActivity{
         weather = findViewById(R.id.Weather);
         tyre_compound = findViewById(R.id.Tyre);
 
-        port = Integer.valueOf(sharedPref.getString("PortInfo", "2777"));
+        port = Integer.valueOf(sharedPref.getString("PortInfo", "20777"));
         startServerSocket();
         running = true;
     }
@@ -235,10 +235,10 @@ public class Dashboard extends AppCompatActivity{
         handler.post(new Runnable() {
             public void run() {
                 try {
-                    Log.d(TAG, "ID:" + packetheader.packetId);
+//                    Log.d(TAG, "ID:" + packetheader.packetId);
 
                     gear.setText(String.valueOf(telemetry_packet.TelemetryDataList.get(playerID).getGear()));
-                    speed.setText(String.valueOf(telemetry_packet.TelemetryDataList.get(playerID).speed));
+                    speed.setText(telemetry_packet.TelemetryDataList.get(playerID).speed + "KPH");
                     position.setText(String.valueOf(lap_packet.LapDataList.get(playerID).carPosition));
                     if(session_data.totalLaps > 1) {
                         laps.setText(lap_packet.LapDataList.get(playerID).currentLapNum + "/" + session_data.totalLaps);
@@ -254,19 +254,23 @@ public class Dashboard extends AppCompatActivity{
                     best_Lap.setText(String.valueOf(lap_packet.LapDataList.get(playerID).getBestLapTime(true)));
                     last_Lap.setText(String.valueOf(lap_packet.LapDataList.get(playerID).getLastLapTime(true)));
 
+                    Log.d(TAG, String.valueOf(carStatus_packet.CarStatusList.get(playerID).actualTyreCompound));
                     switch(carStatus_packet.CarStatusList.get(playerID).actualTyreCompound){
-                        case 16:
+//                        case 16:
                         case 11:
                             tyre_compound.setImageResource(R.drawable.c5);
                             break;
-                        case 17:
+//                        case 17:
+                        case 16:
                         case 12:
                             tyre_compound.setImageResource(R.drawable.c4);
                             break;
-                        case 18:
+//                        case 18:
+                        case 17:
                             tyre_compound.setImageResource(R.drawable.c3);
                             break;
                         case 19:
+                        case 18:
                         case 14:
                         case 9:
                             tyre_compound.setImageResource(R.drawable.c2);

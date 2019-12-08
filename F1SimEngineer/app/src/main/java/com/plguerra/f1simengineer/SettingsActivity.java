@@ -5,6 +5,8 @@ import android.content.SharedPreferences;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,6 +23,7 @@ public class SettingsActivity extends AppCompatActivity{
     SharedPreferences sharedPref;
     TextView ipInfo;
     EditText portInfo;
+    Button save;
     String Port;
 
     public void onCreate(Bundle savedInstanceState) {
@@ -28,6 +31,7 @@ public class SettingsActivity extends AppCompatActivity{
         setContentView(R.layout.settings);
         ipInfo = findViewById(R.id.IP_Info);
         portInfo = findViewById(R.id.Port_Info);
+        save = findViewById(R.id.saveButton);
 
 
         sharedPref = getSharedPreferences("myPref", MODE_PRIVATE);
@@ -43,19 +47,22 @@ public class SettingsActivity extends AppCompatActivity{
             e.printStackTrace();
         }
         ipInfo.setText(ip);
-        portInfo.setText(sharedPref.getString("PortInfo","2777"));
+        portInfo.setText(sharedPref.getString("PortInfo","20777"));
+
+        save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Port = portInfo.getText().toString();
+                if(Port.length() == 0){
+                    Port = "20777";
+                }
+                sharedPref.edit().putString("PortInfo", Port).commit();
+                Toast.makeText(SettingsActivity.this,"Port " + Port + " saved.",Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        });
 
     }
 
-    @Override
-    public void onBackPressed() {
-        Port = portInfo.getText().toString();
-        if(Port.length() == 0){
-            Port = "2777";
-        }
-        sharedPref.edit().putString("PortInfo", Port).commit();
-        Toast.makeText(this,"Port " + Port + " saved.",Toast.LENGTH_SHORT).show();
-        finish();
-    }
 
 }
