@@ -1,30 +1,29 @@
 package com.plguerra.f1simengineer.DataPackets;
 
-import com.plguerra.f1simengineer.BuildConfig;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 
 public class Session_Data {
-    short   weather;              	// Weather - 0 = clear, 1 = light cloud, 2 = overcast
-                                    // 3 = light rain, 4 = heavy rain, 5 = storm
-    short   trackTemperature;    	// Track temp. in degrees celsius
-    short   airTemperature;      	// Air temp. in degrees celsius
-    short   totalLaps;           	// Total number of laps in this race
-    int     trackLength;           	// Track length in metres
-    short   sessionType;         	// 0 = unknown, 1 = P1, 2 = P2, 3 = P3, 4 = Short P
-                                    // 5 = Q1, 6 = Q2, 7 = Q3, 8 = Short Q, 9 = OSQ
-                                    // 10 = R, 11 = R2, 12 = Time Trial
-    short   trackId;         		// -1 for unknown, 0-21 for tracks, see appendix
-    short   formula;                // Formula, 0 = F1 Modern, 1 = F1 Classic, 2 = F2,
-                                    // 3 = F1 Generic
-    int     sessionTimeLeft;    	// Time left in session in seconds
-    int     sessionDuration;     	// Session duration in seconds
-    short   pitSpeedLimit;      	// Pit speed limit in kilometres per hour
-    short   gamePaused;             // Whether the game is paused
-    short   isSpectating;        	// Whether the player is spectating
-    short   spectatorCarIndex;  	// Index of the car being spectated
-    short   sliProNativeSupport;	// SLI Pro support, 0 = inactive, 1 = active
-    short   numMarshalZones;        // Number of marshal zones to follow
+    public short   weather;              	// Weather - 0 = clear, 1 = light cloud, 2 = overcast
+                                            // 3 = light rain, 4 = heavy rain, 5 = storm
+    public short   trackTemperature;    	// Track temp. in degrees celsius
+    public short   airTemperature;      	// Air temp. in degrees celsius
+    public short   totalLaps;           	// Total number of laps in this race
+    public int     trackLength;           	// Track length in metres
+    public short   sessionType;         	// 0 = unknown, 1 = P1, 2 = P2, 3 = P3, 4 = Short P
+                                            // 5 = Q1, 6 = Q2, 7 = Q3, 8 = Short Q, 9 = OSQ
+                                            // 10 = R, 11 = R2, 12 = Time Trial
+    public short   trackId;         		// -1 for unknown, 0-21 for tracks, see appendix
+    public short   formula;                 // Formula, 0 = F1 Modern, 1 = F1 Classic, 2 = F2,
+                                            // 3 = F1 Generic
+    public int     sessionTimeLeft;    	    // Time left in session in seconds
+    public int     sessionDuration;     	// Session duration in seconds
+    public short   pitSpeedLimit;      	    // Pit speed limit in kilometres per hour
+    public short   gamePaused;              // Whether the game is paused
+    public short   isSpectating;            // Whether the player is spectating
+    public short   spectatorCarIndex;  	    // Index of the car being spectated
+    public short   sliProNativeSupport;	    // SLI Pro support, 0 = inactive, 1 = active
+    public short   numMarshalZones;         // Number of marshal zones to follow
 
     public Session_Data(byte[] content) {
         ByteBuffer bb = ByteBuffer.wrap(content);
@@ -47,18 +46,6 @@ public class Session_Data {
         numMarshalZones = (short) bb.get();
     }
 
-
-    public String getWeather(){
-        switch(weather){
-            case 0: return "Clear";
-            case 1: return "Light Cloud";
-            case 2: return "Overcast";
-            case 3: return "Light Rain";
-            case 4: return "Heavy Rain";
-            case 5: return "Storm";
-            default: return "";
-        }
-    }
 
     public String getTrack(){
         switch(trackId){
@@ -97,32 +84,17 @@ public class Session_Data {
             case 1: return "FP1";
             case 2: return "FP2";
             case 3: return "FP3";
-            case 4: return "Practice";
+            case 4: return "Short Practice";
             case 5: return "Q1";
             case 6: return "Q2";
             case 7: return "Q3";
-            case 8: return "Qualifying";
+            case 8: return "Short Qualifying";
             case 9: return "OSQ";
             case 10: return "Race";
             case 11: return "R2";
             case 12: return "Time Trial";
             default: return "";
         }
-    }
-
-
-    public String getFormula(){
-        switch(formula){
-            case 0: return "Modern";
-            case 1: return "Classic";
-            case 2: return "F2";
-            case 3: return "F1 Generic";
-            default: return "";
-        }
-    }
-
-    public String getSessionTimeLeft(){
-        return printFormattedSeconds(sessionTimeLeft);
     }
 
     public String getSessionDuration(){
@@ -140,24 +112,4 @@ public class Session_Data {
             return String.format("%d:%02d", minutes, seconds);
     }
 
-
-    @Override
-    public String toString(){
-        String ret = "Weather: "+getWeather()+"\n";
-        ret += "Track Temperature: "+trackTemperature+" ºC\n";
-        ret += "Air Temperature: "+airTemperature+" ºC\n";
-        ret += "Total laps: "+totalLaps+" laps\n";
-        ret += "Track Length: "+trackLength+" m\n";
-        ret += "Session Type: "+getSessionType()+"\n";
-        ret += "Track: "+getTrack()+"\n";
-        ret += "Era: "+getFormula()+"\n";
-        ret += "Session Time Left: "+getSessionTimeLeft()+"\n";
-        ret += "Session Duration: "+getSessionDuration()+"\n";
-        ret += "Pit Speed Limit: "+pitSpeedLimit+"\n";
-        ret += "Game paused: "+gamePaused+"\n";
-        ret += "Spectator Car Index: "+  spectatorCarIndex+"\n";
-        ret += "Marshal Zones: "+ numMarshalZones+"\n";
-
-        return ret;
-    }
 }

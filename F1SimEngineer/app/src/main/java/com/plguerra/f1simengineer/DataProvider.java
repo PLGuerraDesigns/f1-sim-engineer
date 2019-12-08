@@ -26,7 +26,7 @@ public class DataProvider extends ContentProvider {
     public static final Uri CONTENT_URI =
             Uri.parse("content://" + AUTHORITY + "/"+TABLE_NAME);
 
-    //Column names for the PhotoList Table
+    //Column names for the SessionList Table
     public static final String PHOTO_TABLE_COL_ID = "_ID";
     public static final String PHOTO_TABLE_COL_DATE = "Date";
     public static final String PHOTO_TABLE_COL_SESSTYPE = "Session_Type";
@@ -55,7 +55,6 @@ public class DataProvider extends ContentProvider {
             PHOTO_TABLE_COL_TRACK + " TEXT, " +
             PHOTO_TABLE_COL_TEAM + " TEXT, " +
             PHOTO_TABLE_COL_TYRETYPE + " TEXT, " +
-            PHOTO_TABLE_COL_LAPS + " TEXT, " +
             PHOTO_TABLE_COL_LAPS + " TEXT, " +
             PHOTO_TABLE_COL_TOPSPEED + " TEXT, " +
             PHOTO_TABLE_COL_AVGSPEED + " TEXT, " +

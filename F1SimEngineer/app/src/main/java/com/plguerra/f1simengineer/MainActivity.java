@@ -29,11 +29,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
+        Intent intent;
 
         switch (v.getId()) {
-            //Handling conversion of button presses (digits) to string data.
             case R.id.dashboard_button:
-                openSimpleDash();
+                intent = new Intent(this, Dashboard.class);
+                startActivity(intent);
                 break;
 
             case R.id.analysis_button:
@@ -41,16 +42,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.settings_button:
-                Toast.makeText(this,"Open Settings Page", Toast.LENGTH_SHORT).show();
+                intent = new Intent(this, SettingsActivity.class);
+                startActivity(intent);
                 break;
 
         }
-    }
-
-    //Open Create Note Page
-    public void openSimpleDash(){
-        Intent intent = new Intent(this, Dashboard.class);
-        startActivity(intent);
     }
 
     //Open TrackOverview page

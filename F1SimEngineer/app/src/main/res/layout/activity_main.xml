@@ -7,24 +7,27 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
     <ImageView
         android:id="@+id/bg_image"
-        android:layout_width="537dp"
-        android:layout_height="302dp"
-        android:background="@drawable/bg_image"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg2"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
         app:layout_constraintTop_toTopOf="@id/bg_image"
-        app:layout_constraintBottom_toBottomOf="@id/bg_image"
+        android:paddingTop="35dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="F1 SimEngineer"
+        android:fontFamily="@font/space_age"
+        android:text="F1 Sim
+        Engineer"
         android:gravity="center_horizontal"
-        android:textSize="70dp"
+        android:textSize="55dp"
         android:textColor="@color/white"/>
 
     <ImageView
@@ -32,9 +35,8 @@
         android:layout_width="match_parent"
         android:layout_marginHorizontal="35dp"
         android:layout_height="165dp"
-        android:layout_marginBottom="70dp"
+        android:layout_marginBottom="80dp"
         android:background="@drawable/rectangle"
-        app:layout_constraintTop_toBottomOf="@id/bg_image"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -127,20 +129,20 @@
         app:layout_constraintTop_toTopOf="@+id/imageView3"
         android:orientation="vertical">
 
-    <Button
-        android:id="@+id/settings_button"
-        android:layout_width="86dp"
-        android:layout_height="86dp"
-        android:background="@drawable/settings_icon"
-        android:backgroundTint="@color/white"/>
+        <Button
+            android:id="@+id/settings_button"
+            android:layout_width="86dp"
+            android:layout_height="86dp"
+            android:background="@drawable/settings_icon"
+            android:backgroundTint="@color/white"/>
 
-    <TextView
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Settings"
-        android:textColor="@color/white"
-        android:gravity="center"/>
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Settings"
+            android:textColor="@color/white"
+            android:gravity="center"/>
     </LinearLayout>
 
 
