@@ -71,6 +71,7 @@ public class SessionOverviewAdapter extends RecyclerView.Adapter<SessionOverview
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(v.getContext(), SessionViewActivity.class);
+                    //intent.putExtra("TrackId", )
                     v.getContext().startActivity(intent);
                 }
             });

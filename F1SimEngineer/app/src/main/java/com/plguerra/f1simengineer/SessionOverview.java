@@ -79,7 +79,7 @@ public class SessionOverview extends AppCompatActivity {
             soi.sessionLaps = SessionOverviewInfo.LAPS_PREFIX + i;
             soi.sessionPosition = SessionOverviewInfo.POS_PREFIX + i;
             if ((i % 2) == 0) {
-                soi.backgroundColor = Color.GRAY;
+                soi.backgroundColor = Color.parseColor("#1B1B1B");
             } else {
                 soi.backgroundColor = Color.BLACK;
             }

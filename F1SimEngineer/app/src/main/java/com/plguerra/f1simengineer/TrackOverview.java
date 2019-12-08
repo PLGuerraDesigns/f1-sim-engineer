@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import androidx.annotation.ColorInt;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -63,7 +64,7 @@ public class TrackOverview extends AppCompatActivity {
             toi.qualifyingNumber = TrackOverviewInfo.QUALIFYING_PREFIX + i;
             toi.raceNumber = TrackOverviewInfo.RACE_PREFIX + i;
             if((i%2)== 0) {
-                toi.cardColor = Color.GRAY;
+                toi.cardColor = Color.parseColor("#1B1B1B");
             } else {
                 toi.cardColor = Color.BLACK;
             }
