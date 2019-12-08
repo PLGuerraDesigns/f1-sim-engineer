@@ -32,17 +32,4 @@ public class PacketHeader {
         playerCarIndex = bb.get();
     }
 
-
-    @Override
-    public String toString() {
-        return "Format: " + packetFormat + "\n"
-                + "Version: " + packetVersion + "\n"
-                + "ID: " + packetId + "\n"
-                + "Session UID: " + sessionUID + "\n"
-                + "Session Time: " + sessionTime + "\n"
-                + "Frame Identifier: " + frameIdentifier + "\n"
-                + "Player Car Index: " + playerCarIndex + "\n";
-    }
-
-
 }
