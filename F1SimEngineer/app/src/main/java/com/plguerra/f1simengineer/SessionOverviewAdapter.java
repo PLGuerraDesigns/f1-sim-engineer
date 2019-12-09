@@ -35,9 +35,7 @@ public class SessionOverviewAdapter extends RecyclerView.Adapter<SessionOverview
         sessionOverviewHolder.vSessionLaps.setText(soi.sessionLaps);
         sessionOverviewHolder.vSessionPosition.setText(soi.sessionPosition);
         sessionOverviewHolder.vSessionTire.setText(soi.sessionTire);
-        if(soi.backgroundColor == "black") {
-            sessionOverviewHolder.vLinearLayout.setBackgroundColor(Color.BLACK);
-        }
+        sessionOverviewHolder.vLinearLayout.setBackgroundColor(soi.backgroundColor);
     }
 
     @Override

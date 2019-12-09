@@ -56,7 +56,7 @@ public class TrackOverview extends AppCompatActivity {
 
     private List<TrackOverviewInfo> createList(int size) {
 
-        addFakeData();
+//        addFakeData();
         List<TrackOverviewInfo> sqldata = LoadTask();
 
         List<TrackOverviewInfo> result = new ArrayList<TrackOverviewInfo>();
@@ -67,15 +67,17 @@ public class TrackOverview extends AppCompatActivity {
             toi.trackName = data.getTrack();
             int praticeCount = 0, qualifyingCount = 0, raceCount = 0;
             for(TrackOverviewInfo item: sqldata) {
-                if (item.trackName.equals(toi.trackName)) {
-                    if(item.sessionType.equals("Practice")) {
-                        praticeCount++;
-                    }
-                    if(item.sessionType.equals("Qualifying")) {
-                        qualifyingCount++;
-                    }
-                    if(item.sessionType.equals("Races")) {
-                        raceCount++;
+                if (item.trackName != null) {
+                    if (item.trackName.equals(toi.trackName)) {
+                        if (item.sessionType.equals("Practice")) {
+                            praticeCount++;
+                        }
+                        if (item.sessionType.equals("Qualifying")) {
+                            qualifyingCount++;
+                        }
+                        if (item.sessionType.equals("Races")) {
+                            raceCount++;
+                        }
                     }
                 }
             }
@@ -88,9 +90,6 @@ public class TrackOverview extends AppCompatActivity {
                 toi.cardColor = Color.parseColor("#1B1B1B");
             } else {
                 toi.cardColor = Color.BLACK;
-            }
-            else{
-                toi.cardColor = "grey";
             }
             toi.imageResource = getResources().getIdentifier("com.plguerra.f1simengineer:drawable/" + data.getTrackImage(), null, null);
 

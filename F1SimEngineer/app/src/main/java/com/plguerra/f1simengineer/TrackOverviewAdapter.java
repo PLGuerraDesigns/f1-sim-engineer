@@ -40,9 +40,7 @@ public class TrackOverviewAdapter extends RecyclerView.Adapter<TrackOverviewAdap
         trackOverviewHolder.vPracticeNumber.setText(toi.practiceNumber);
         trackOverviewHolder.vQualifyingNumber.setText(toi.qualifyingNumber);
         trackOverviewHolder.vRaceNumber.setText(toi.raceNumber);
-        if(toi.cardColor == "black") {
-            trackOverviewHolder.vCardView.setCardBackgroundColor(Color.BLACK);
-        }
+        trackOverviewHolder.vCardView.setCardBackgroundColor(toi.cardColor);
         trackOverviewHolder.vImageView.setImageResource(toi.imageResource);
     }
 
