@@ -1,6 +1,7 @@
 package com.plguerra.f1simengineer;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,7 +35,9 @@ public class SessionOverviewAdapter extends RecyclerView.Adapter<SessionOverview
         sessionOverviewHolder.vSessionLaps.setText(soi.sessionLaps);
         sessionOverviewHolder.vSessionPosition.setText(soi.sessionPosition);
         sessionOverviewHolder.vSessionTire.setText(soi.sessionTire);
-        sessionOverviewHolder.vLinearLayout.setBackgroundColor(soi.backgroundColor);
+        if(soi.backgroundColor == "black") {
+            sessionOverviewHolder.vLinearLayout.setBackgroundColor(Color.BLACK);
+        }
     }
 
     @Override

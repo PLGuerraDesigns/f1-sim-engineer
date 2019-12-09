@@ -3,87 +3,95 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:id="@+id/sessionOverviewLinearLayout"
     android:layout_height="wrap_content"
-    android:background="@color/black">
-
-    <TextView
-        android:id="@+id/sessionType"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="15dp"
-        android:textColor="@color/yellow"
-        android:textSize="18dp"
-        android:text="Practice" />
+    android:background="@color/dark_grey">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:weightSum="3"
-        android:orientation="horizontal">
+        android:background="@drawable/customborder"
+        android:orientation="vertical"
+        android:paddingBottom="10dp">
 
         <TextView
-            android:id="@+id/sessionDate"
-            android:layout_width="wrap_content"
+            android:id="@+id/sessionType"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_weight="1"
-            android:textColor="@color/white"
-            android:text="@string/sessionDate" />
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="15dp"
+            android:textColor="@color/yellow"
+            android:textSize="18dp"
+            android:text="Practice" />
 
-        <TextView
-            android:id="@+id/sessionLaps"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
-            android:layout_weight="1"
-            android:textColor="@color/white"
-            android:text="@string/sessionLaps" />
+            android:weightSum="3"
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/sessionPos"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
-            android:layout_weight="1"
-            android:textColor="@color/white"
-            android:text="@string/sessionPos" />
+            <TextView
+                android:id="@+id/sessionDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_weight="1"
+                android:textColor="@color/white"
+                android:text="@string/sessionDate" />
 
+            <TextView
+                android:id="@+id/sessionLaps"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_weight="1"
+                android:textColor="@color/white"
+                android:text="@string/sessionLaps" />
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:weightSum="3"
-        android:orientation="horizontal">
-
-        <TextView
-            android:id="@+id/sessionVehicle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_weight="1"
-            android:textColor="@color/white"
-            android:text="@string/sessionVehicle" />
-
-        <TextView
-            android:id="@+id/sessionBestLap"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_weight="1"
-            android:textColor="@color/white"
-            android:text="@string/sessionBestLap" />
-
-        <TextView
-            android:id="@+id/sessionTire"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="0dp"
-            android:layout_weight="1"
-            android:textColor="@color/white"
-            android:text="@string/sessionTire" />
+            <TextView
+                android:id="@+id/sessionPos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_weight="1"
+                android:textColor="@color/white"
+                android:text="@string/sessionPos" />
 
 
-    </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="3"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/sessionVehicle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_weight="1"
+                android:textColor="@color/white"
+                android:text="@string/sessionVehicle" />
+
+            <TextView
+                android:id="@+id/sessionBestLap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:textColor="@color/white"
+                android:text="@string/sessionBestLap" />
+
+            <TextView
+                android:id="@+id/sessionTire"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="0dp"
+                android:layout_weight="1"
+                android:textColor="@color/white"
+                android:text="@string/sessionTire" />
+
+
+            </LinearLayout>
+        </LinearLayout>
 </LinearLayout>

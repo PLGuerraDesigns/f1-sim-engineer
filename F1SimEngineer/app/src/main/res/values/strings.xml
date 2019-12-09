@@ -18,14 +18,15 @@
     <string name="sectorThreeTime">Sector 3 time: </string>
 
     <string-array name="filter_array">
+        <item>All</item>
         <item>Practice</item>
         <item>Qualifying</item>
         <item>Races</item>
     </string-array>
     <string-array name="sort_array">
+        <item>Date</item>
         <item>Best lap</item>
         <item>Laps</item>
         <item>Position</item>
-        <item>Date</item>
     </string-array>
 </resources>

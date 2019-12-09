@@ -89,6 +89,9 @@ public class TrackOverview extends AppCompatActivity {
             } else {
                 toi.cardColor = Color.BLACK;
             }
+            else{
+                toi.cardColor = "grey";
+            }
             toi.imageResource = getResources().getIdentifier("com.plguerra.f1simengineer:drawable/" + data.getTrackImage(), null, null);
 
             result.add(toi);

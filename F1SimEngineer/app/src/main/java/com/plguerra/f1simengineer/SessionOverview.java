@@ -87,7 +87,7 @@ public class SessionOverview extends AppCompatActivity {
             if ((i % 2) == 0) {
                 soi.backgroundColor = Color.parseColor("#1B1B1B");
             } else {
-                soi.backgroundColor = Color.BLACK;
+                soi.backgroundColor = "black";
             }
             i++;
             result.add(soi);
