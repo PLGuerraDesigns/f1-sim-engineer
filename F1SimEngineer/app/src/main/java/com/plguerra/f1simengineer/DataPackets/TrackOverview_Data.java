@@ -13,7 +13,7 @@ public class TrackOverview_Data {
     public String getTrackImage() {
         switch(trackId) {
             case 0: return "track_melbourne";
-            case 1: return "track_paulrichard";
+            case 1: return "track_paulricard";
             case 2: return "track_shanghai";
             case 3: return "track_catalunya";
             case 4: return "track_monaco";

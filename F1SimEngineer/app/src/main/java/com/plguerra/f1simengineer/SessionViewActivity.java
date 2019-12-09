@@ -23,12 +23,8 @@ public class SessionViewActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.session_view);
 
-        //Get string form intent
-        Bundle p = getIntent().getExtras();
-        tableId = p.getString("tableId");
-
-        setTextBoxes();
         getintent();
+        setTextBoxes();
     }
 
     private void setTextBoxes() {
@@ -49,8 +45,17 @@ public class SessionViewActivity extends AppCompatActivity{
         TextView sector2TimeTextView = findViewById(R.id.sector2Time);
         TextView sector3TimeTextView = findViewById(R.id.sector3Time);
 
+        //Set Image
+        String temp = sessionData.trackName;
+        if(temp != null && !temp.isEmpty())
+        {
+            temp = temp.replaceAll("[^A-Za-z]+", "").toLowerCase();
+            temp = "track_" + temp;
+            mapImage.setImageResource(getResources().getIdentifier("com.plguerra.f1simengineer:drawable/" + temp, null, null));
+        }
+
+        //Set Textboxes
         trackTitleTextView.setText(sessionData.trackName);
-        //Image
         sessionType.setText("Session Type: " + sessionData.sessionType);
         date.setText("Date: " + sessionData.sessionDate);
         finalPosition.setText("Final Position: " + sessionData.sessionPosition);
