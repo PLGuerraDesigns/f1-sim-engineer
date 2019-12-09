@@ -10,7 +10,7 @@ public class SessionOverviewInfo {
     protected String sessionTire;
     protected String sessionLaps;
     protected String sessionPosition;
-    protected int backgroundColor;
+    protected String backgroundColor;
     protected int sessionId;
     protected int trackId;
     protected static final String DATE_PREFIX = "Date: ";

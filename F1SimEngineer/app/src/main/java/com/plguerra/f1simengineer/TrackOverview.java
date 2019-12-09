@@ -63,9 +63,10 @@ public class TrackOverview extends AppCompatActivity {
             toi.qualifyingNumber = TrackOverviewInfo.QUALIFYING_PREFIX + i;
             toi.raceNumber = TrackOverviewInfo.RACE_PREFIX + i;
             if((i%2)== 0) {
-                toi.cardColor = Color.GRAY;
-            } else {
-                toi.cardColor = Color.BLACK;
+                toi.cardColor = "black";
+            }
+            else{
+                toi.cardColor = "grey";
             }
             toi.imageResource = getResources().getIdentifier("com.plguerra.f1simengineer:drawable/" + data.getTrackImage(), null, null);
 

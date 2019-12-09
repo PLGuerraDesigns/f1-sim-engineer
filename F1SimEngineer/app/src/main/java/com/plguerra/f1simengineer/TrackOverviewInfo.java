@@ -8,7 +8,7 @@ public class TrackOverviewInfo {
     protected String practiceNumber;
     protected String qualifyingNumber;
     protected String raceNumber;
-    protected int cardColor;
+    protected String cardColor;
     protected int imageResource;
     protected int trackId;
     protected static final String SESSION_PREFIX = "Number of Sessions: ";

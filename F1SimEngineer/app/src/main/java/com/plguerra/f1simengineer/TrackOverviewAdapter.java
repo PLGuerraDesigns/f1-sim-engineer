@@ -1,6 +1,8 @@
 package com.plguerra.f1simengineer;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +13,7 @@ import android.view.LayoutInflater;
 import android.widget.Toast;
 
 import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -37,7 +40,9 @@ public class TrackOverviewAdapter extends RecyclerView.Adapter<TrackOverviewAdap
         trackOverviewHolder.vPracticeNumber.setText(toi.practiceNumber);
         trackOverviewHolder.vQualifyingNumber.setText(toi.qualifyingNumber);
         trackOverviewHolder.vRaceNumber.setText(toi.raceNumber);
-        trackOverviewHolder.vCardView.setCardBackgroundColor(toi.cardColor);
+        if(toi.cardColor == "black") {
+            trackOverviewHolder.vCardView.setCardBackgroundColor(Color.BLACK);
+        }
         trackOverviewHolder.vImageView.setImageResource(toi.imageResource);
     }
 
