@@ -34,7 +34,7 @@
                 android:layout_width="230dp"
                 android:layout_height="230dp"
                 android:padding="20dp"
-                app:srcCompat="@drawable/track_melbourne"
+                app:srcCompat="@drawable/track_abudhabi"
                 android:layout_gravity="center_horizontal"
                 android:background="@drawable/customborder"
                 android:layout_marginBottom="20dp"/>
@@ -57,6 +57,16 @@
                 android:layout_marginStart="50dp"
                 android:textColor="@color/white"
                 android:text="Date: "
+                android:textSize="20dp"
+                android:paddingTop="5dp"/>
+
+            <TextView
+                android:id="@+id/position"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:textColor="@color/white"
+                android:text="Final Position: "
                 android:textSize="20dp"
                 android:paddingTop="5dp"/>
 

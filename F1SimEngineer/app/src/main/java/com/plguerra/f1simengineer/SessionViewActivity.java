@@ -36,6 +36,7 @@ public class SessionViewActivity extends AppCompatActivity{
         ImageView mapImage = findViewById(R.id.sessionTrackImage);
         TextView sessionType = findViewById(R.id.sessionType);
         TextView date = findViewById(R.id.date);
+        TextView finalPosition = findViewById(R.id.position);
         TextView formula = findViewById(R.id.formula);
         TextView teamCar = findViewById(R.id.teamCar);
         TextView tyreCompound = findViewById(R.id.tyreCompound);
@@ -50,6 +51,7 @@ public class SessionViewActivity extends AppCompatActivity{
         //Image
         sessionType.setText("Session Type: " + sessionData.sessionType);
         date.setText("Date: " + sessionData.sessionDate);
+        finalPosition.setText("Final Position: " + sessionData.sessionPosition);
         formula.setText("Formula Type: F1");
         teamCar.setText("Team Car: " + sessionData.sessionVehicle);
         tyreCompound.setText("Tyre Compound: " + sessionData.sessionTire);
