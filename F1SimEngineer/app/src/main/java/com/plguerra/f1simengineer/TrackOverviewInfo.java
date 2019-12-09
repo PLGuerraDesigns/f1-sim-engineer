@@ -4,6 +4,7 @@ import android.graphics.drawable.Drawable;
 
 public class TrackOverviewInfo {
     protected String trackName;
+    protected String sessionType;
     protected String sessionsNumber;
     protected String practiceNumber;
     protected String qualifyingNumber;
