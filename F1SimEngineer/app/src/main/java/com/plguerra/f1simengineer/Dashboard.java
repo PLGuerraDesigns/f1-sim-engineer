@@ -176,33 +176,33 @@ public class Dashboard extends AppCompatActivity{
 
 
         if(data_Received) {
-            myCV.put(DataProvider.PHOTO_TABLE_COL_DATE, currentDate);
+            myCV.put(DataProvider.SESSION_TABLE_COL_DATE, currentDate);
             if (participants_Received) {
-                myCV.put(DataProvider.PHOTO_TABLE_COL_TEAM, participants_packet.ParticipantDataList.get(playerID).getTeam());
+                myCV.put(DataProvider.SESSION_TABLE_COL_TEAM, participants_packet.ParticipantDataList.get(playerID).getTeam());
             }
 
             if (session_Received) {
-                myCV.put(DataProvider.PHOTO_TABLE_COL_SESSTYPE, session_data.getSessionType());
-                myCV.put(DataProvider.PHOTO_TABLE_COL_TRACK, session_data.getTrack());
-                myCV.put(DataProvider.PHOTO_TABLE_COL_SESSTIME, session_data.getSessionDuration());
+                myCV.put(DataProvider.SESSION_TABLE_COL_SESSTYPE, session_data.getSessionType());
+                myCV.put(DataProvider.SESSION_TABLE_COL_TRACK, session_data.getTrack());
+                myCV.put(DataProvider.SESSION_TABLE_COL_SESSTIME, session_data.getSessionDuration());
             }
             if (carStatus_Received) {
-                myCV.put(DataProvider.PHOTO_TABLE_COL_TYRETYPE, carStatus_packet.CarStatusList.get(playerID).getTyreCompound());
+                myCV.put(DataProvider.SESSION_TABLE_COL_TYRETYPE, carStatus_packet.CarStatusList.get(playerID).getTyreCompound());
             }
             if (lap_Received) {
-                myCV.put(DataProvider.PHOTO_TABLE_COL_LAPS, lap_packet.LapDataList.get(playerID).currentLapNum);
-                myCV.put(DataProvider.PHOTO_TABLE_COL_POSITION, lap_packet.LapDataList.get(playerID).carPosition);
-                myCV.put(DataProvider.PHOTO_TABLE_COL_BESTLAP, lap_packet.LapDataList.get(playerID).getBestLapTime(true));
-//                myCV.put(DataProvider.PHOTO_TABLE_COL_AVGTIME, (totalLapTime / (lap_packet.LapDataList.get(playerID).currentLapNum - 1)));
+                myCV.put(DataProvider.SESSION_TABLE_COL_LAPS, lap_packet.LapDataList.get(playerID).currentLapNum);
+                myCV.put(DataProvider.SESSION_TABLE_COL_POSITION, lap_packet.LapDataList.get(playerID).carPosition);
+                myCV.put(DataProvider.SESSION_TABLE_COL_BESTLAP, lap_packet.LapDataList.get(playerID).getBestLapTime(true));
+//                myCV.put(DataProvider.SESSION_TABLE_COL_AVGTIME, (totalLapTime / (lap_packet.LapDataList.get(playerID).currentLapNum - 1)));
                 if(BestS1 != 9999) {
-                    myCV.put(DataProvider.PHOTO_TABLE_COL_BESTSECTOR1, BestS1);
-                    myCV.put(DataProvider.PHOTO_TABLE_COL_BESTSECTOR2, BestS2);
-                    myCV.put(DataProvider.PHOTO_TABLE_COL_BESTSECTOR3, BestS3);
+                    myCV.put(DataProvider.SESSION_TABLE_COL_BESTSECTOR1, BestS1);
+                    myCV.put(DataProvider.SESSION_TABLE_COL_BESTSECTOR2, BestS2);
+                    myCV.put(DataProvider.SESSION_TABLE_COL_BESTSECTOR3, BestS3);
                 }
             }
             if(telemetry_Received){
-                myCV.put(DataProvider.PHOTO_TABLE_COL_TOPSPEED, topSpeed);
-                myCV.put(DataProvider.PHOTO_TABLE_COL_AVGSPEED, (speedSum/speedCount));
+                myCV.put(DataProvider.SESSION_TABLE_COL_TOPSPEED, topSpeed);
+                myCV.put(DataProvider.SESSION_TABLE_COL_AVGSPEED, (speedSum/speedCount));
             }
 
             getContentResolver().insert(DataProvider.CONTENT_URI, myCV);

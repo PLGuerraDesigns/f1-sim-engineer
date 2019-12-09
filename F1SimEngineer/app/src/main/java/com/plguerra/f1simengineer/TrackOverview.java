@@ -5,18 +5,16 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import androidx.annotation.ColorInt;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.plguerra.f1simengineer.DataPackets.Session_Data;
 import com.plguerra.f1simengineer.DataPackets.TrackOverview_Data;
 
-import java.nio.channels.spi.AbstractSelectionKey;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,8 +54,8 @@ public class TrackOverview extends AppCompatActivity {
 
     private List<TrackOverviewInfo> createList(int size) {
 
-        addFakeData();
-        List<TrackOverviewInfo> sqldata = LoadTask();
+//        addFakeData();
+        List<TrackOverviewInfo> sqldata = LoadSessionInfo();
 
         List<TrackOverviewInfo> result = new ArrayList<TrackOverviewInfo>();
         for (int i=0; i <= size; i++) {
@@ -67,15 +65,17 @@ public class TrackOverview extends AppCompatActivity {
             toi.trackName = data.getTrack();
             int praticeCount = 0, qualifyingCount = 0, raceCount = 0;
             for(TrackOverviewInfo item: sqldata) {
-                if (item.trackName.equals(toi.trackName)) {
-                    if(item.sessionType.equals("Practice")) {
-                        praticeCount++;
-                    }
-                    if(item.sessionType.equals("Qualifying")) {
-                        qualifyingCount++;
-                    }
-                    if(item.sessionType.equals("Races")) {
-                        raceCount++;
+                if (item.trackName != null) {
+                    if (item.trackName.equals(toi.trackName)) {
+                        if (item.sessionType.equals("Practice")) {
+                            praticeCount++;
+                        }
+                        if (item.sessionType.equals("Qualifying")) {
+                            qualifyingCount++;
+                        }
+                        if (item.sessionType.equals("Race")) {
+                            raceCount++;
+                        }
                     }
                 }
             }
@@ -97,12 +97,12 @@ public class TrackOverview extends AppCompatActivity {
         return result;
     }
 
-    //Load Task Information Based on ID
-    public List<TrackOverviewInfo> LoadTask(){
+    //Load Session Information
+    public List<TrackOverviewInfo> LoadSessionInfo(){
 
         String[] projection = {                                  // The columns to return for each row
-                DataProvider.PHOTO_TABLE_COL_TRACK,
-                DataProvider.PHOTO_TABLE_COL_SESSTYPE,
+                DataProvider.SESSION_TABLE_COL_TRACK,
+                DataProvider.SESSION_TABLE_COL_SESSTYPE,
         };
         Cursor myCursor = getContentResolver().query(DataProvider.CONTENT_URI, projection, null, null, null);
         List itemIds = new ArrayList<TrackOverviewInfo>();
@@ -120,21 +120,21 @@ public class TrackOverview extends AppCompatActivity {
 
     public void addFakeData() {
         ContentValues myCV = new ContentValues();
-        myCV.put(DataProvider.PHOTO_TABLE_COL_DATE, "09/25/2019");
-        myCV.put(DataProvider.PHOTO_TABLE_COL_SESSTYPE, "Practice");
-        myCV.put(DataProvider.PHOTO_TABLE_COL_TRACK, "Paul Ricard");
-        myCV.put(DataProvider.PHOTO_TABLE_COL_TEAM, "Mercedes");
-        myCV.put(DataProvider.PHOTO_TABLE_COL_TYRETYPE, "SS");
-        myCV.put(DataProvider.PHOTO_TABLE_COL_LAPS, "15");
-        myCV.put(DataProvider.PHOTO_TABLE_COL_TOPSPEED, "215");
-        myCV.put(DataProvider.PHOTO_TABLE_COL_AVGSPEED, "190");
-        myCV.put(DataProvider.PHOTO_TABLE_COL_POSITION, "2");
-        myCV.put(DataProvider.PHOTO_TABLE_COL_SESSTIME, "25:15.210");
-        myCV.put(DataProvider.PHOTO_TABLE_COL_BESTLAP, "1:28.485");
-        myCV.put(DataProvider.PHOTO_TABLE_COL_AVGTIME, "1:23.008");
-        myCV.put(DataProvider.PHOTO_TABLE_COL_BESTSECTOR1, "27.456");
-        myCV.put(DataProvider.PHOTO_TABLE_COL_BESTSECTOR2, "22.782");
-        myCV.put(DataProvider.PHOTO_TABLE_COL_BESTSECTOR3, "23.991");
+        myCV.put(DataProvider.SESSION_TABLE_COL_DATE, "Dec 8, 2019");
+        myCV.put(DataProvider.SESSION_TABLE_COL_SESSTYPE, "Practice");
+        myCV.put(DataProvider.SESSION_TABLE_COL_TRACK, "Abu Dhabi");
+        myCV.put(DataProvider.SESSION_TABLE_COL_TEAM, "Mercedes");
+        myCV.put(DataProvider.SESSION_TABLE_COL_TYRETYPE, "C5");
+        myCV.put(DataProvider.SESSION_TABLE_COL_LAPS, "15");
+        myCV.put(DataProvider.SESSION_TABLE_COL_TOPSPEED, "215");
+        myCV.put(DataProvider.SESSION_TABLE_COL_AVGSPEED, "190");
+        myCV.put(DataProvider.SESSION_TABLE_COL_POSITION, "2");
+        myCV.put(DataProvider.SESSION_TABLE_COL_SESSTIME, "25:15.210");
+        myCV.put(DataProvider.SESSION_TABLE_COL_BESTLAP, "1:28.485");
+        myCV.put(DataProvider.SESSION_TABLE_COL_AVGTIME, "1:23.008");
+        myCV.put(DataProvider.SESSION_TABLE_COL_BESTSECTOR1, "27.456");
+        myCV.put(DataProvider.SESSION_TABLE_COL_BESTSECTOR2, "22.782");
+        myCV.put(DataProvider.SESSION_TABLE_COL_BESTSECTOR3, "23.991");
         getContentResolver().insert(DataProvider.CONTENT_URI, myCV);
     }
 }

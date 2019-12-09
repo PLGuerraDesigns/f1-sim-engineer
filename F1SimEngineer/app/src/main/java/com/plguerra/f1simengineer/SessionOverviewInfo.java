@@ -14,7 +14,11 @@ public class SessionOverviewInfo {
     protected String averageLap;
     protected int backgroundColor;
     protected String sessionId;
-    protected int trackId;
+    protected String trackName;
+    protected String topSpeed;
+    protected String bestSector1;
+    protected String bestSector2;
+    protected String bestSector3;
     protected static final String DATE_PREFIX = "Date: ";
     protected static final String LAPS_PREFIX = "Laps: ";
     protected static final String POS_PREFIX = "Pos: ";

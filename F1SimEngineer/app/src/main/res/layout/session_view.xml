@@ -5,73 +5,218 @@
     android:layout_height="match_parent"
     android:background="@color/black">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_marginStart="15dp"
-        android:layout_marginEnd="15dp"
-        android:background="@color/dark_grey">
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/trackTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:textSize="28dp"
-        android:text="Track Title"
-        android:textColor="@color/white"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:background="@color/dark_grey">
 
-    <ImageView
-        android:id="@+id/sessionTrackImage"
-        android:layout_width="match_parent"
-        android:layout_height="160dp"
-        app:srcCompat="@drawable/track_melbourne" />
+            <TextView
+                android:id="@+id/trackTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="15dp"
+                android:textSize="44sp"
+                android:textStyle="bold"
+                android:text="Track Title"
+                android:textColor="@color/yellow"/>
 
-    <TextView
-        android:id="@+id/numberofLaps"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:text="@string/numberOfLaps"
-        android:textColor="@color/white"/>
-    <TextView
-        android:id="@+id/fastestLapTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:textColor="@color/white"
-        android:text="@string/fastestLapTime"/>
-    <TextView
-        android:id="@+id/averageLapTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:textColor="@color/white"
-        android:text="@string/averageLapTime" />
 
-    <TextView
-        android:id="@+id/sector1Time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="50dp"
-        android:textColor="@color/white"
-        android:text="@string/sectorOneTime" />
-    <TextView
-        android:id="@+id/sector2Time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:textColor="@color/white"
-        android:text="@string/sectorTwoTime" />
-    <TextView
-        android:id="@+id/sector3Time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:textColor="@color/white"
-        android:text="@string/sectorThreeTime" />
+            <ImageView
+                android:id="@+id/sessionTrackImage"
+                android:layout_width="230dp"
+                android:layout_height="230dp"
+                android:padding="20dp"
+                app:srcCompat="@drawable/track_abudhabi"
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/customborder"
+                android:layout_marginBottom="20dp"/>
 
-    </LinearLayout>
+
+            <TextView
+                android:id="@+id/sessionType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:textColor="@color/white"
+                android:text="Session Type: "
+                android:textSize="20dp"
+                android:paddingTop="5dp"/>
+
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:textColor="@color/white"
+                android:text="Date: "
+                android:textSize="20dp"
+                android:paddingTop="5dp"/>
+
+            <TextView
+                android:id="@+id/position"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:textColor="@color/white"
+                android:text="Final Position: "
+                android:textSize="20dp"
+                android:paddingTop="5dp"/>
+
+
+            <TextView
+                android:id="@+id/formula"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:textColor="@color/white"
+                android:text="Formula Type: F1"
+                android:textSize="20dp"
+                android:paddingTop="5dp"/>
+
+            <TextView
+                android:id="@+id/teamCar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:text="Team Car: "
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:paddingTop="5dp"/>
+
+            <TextView
+                android:id="@+id/tyreCompound"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:textColor="@color/white"
+                android:text="Tyre Compound: "
+                android:textSize="20dp"
+                android:paddingTop="5dp"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginVertical="20dp"
+                android:background="@color/orange"/>
+
+            <TextView
+                android:id="@+id/numberofLaps"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:text="@string/numberOfLaps"
+                android:textColor="@color/white"
+                android:textSize="20dp"
+                android:paddingTop="5dp"/>
+            <TextView
+                android:id="@+id/fastestLapTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:textColor="@color/white"
+                android:text="@string/fastestLapTime"
+                android:textSize="20dp"
+                android:paddingTop="5dp"/>
+            <TextView
+                android:id="@+id/topSpeed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:textColor="@color/white"
+                android:text="Top Speed:"
+                android:textSize="20dp"
+                android:paddingTop="5dp"/>
+
+<!--            <ImageView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="2dp"-->
+<!--                android:layout_marginVertical="20dp"-->
+<!--                android:background="@color/orange"/>-->
+
+            <TextView
+                android:id="@+id/sector1Time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:textColor="@color/white"
+                android:text="@string/sectorOneTime"
+                android:textSize="20dp"
+                android:paddingTop="5dp"/>
+            <TextView
+                android:id="@+id/sector2Time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:textColor="@color/white"
+                android:text="@string/sectorTwoTime"
+                android:textSize="20dp"
+                android:paddingTop="5dp"/>
+            <TextView
+                android:id="@+id/sector3Time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:textColor="@color/white"
+                android:text="@string/sectorThreeTime"
+                android:textSize="20dp"
+                android:paddingTop="5dp"
+                android:layout_marginBottom="20dp"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginVertical="20dp"
+                android:background="@color/orange"/>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="20dp"
+                android:text="Gear"
+                android:textColor="@color/red"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:src="@drawable/gear_graph_1"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="20dp"
+                android:text="Throttle"
+                android:textColor="@color/blue"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:src="@drawable/throttle_graph_1"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="20dp"
+                android:text="Brake"
+                android:textColor="@color/orange"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:src="@drawable/brake_graph_1"
+                android:paddingBottom="20dp"/>
+
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

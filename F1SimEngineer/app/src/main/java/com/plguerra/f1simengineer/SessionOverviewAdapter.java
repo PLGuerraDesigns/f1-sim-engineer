@@ -1,6 +1,8 @@
 package com.plguerra.f1simengineer;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +11,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.security.PrivateKey;
 import java.util.List;
 
 public class SessionOverviewAdapter extends RecyclerView.Adapter<SessionOverviewAdapter.SessionOverviewHolder> {
@@ -25,7 +28,7 @@ public class SessionOverviewAdapter extends RecyclerView.Adapter<SessionOverview
     }
 
     @Override
-    public void onBindViewHolder(SessionOverviewAdapter.SessionOverviewHolder sessionOverviewHolder, int i) {
+    public void onBindViewHolder(SessionOverviewAdapter.SessionOverviewHolder sessionOverviewHolder, final int i) {
         SessionOverviewInfo soi = sessionOverviewList.get(i);
         sessionOverviewHolder.vSessionType.setText(soi.sessionType);
         sessionOverviewHolder.vSessionVehicle.setText(soi.sessionVehicle);
@@ -35,6 +38,15 @@ public class SessionOverviewAdapter extends RecyclerView.Adapter<SessionOverview
         sessionOverviewHolder.vSessionPosition.setText(soi.sessionPosition);
         sessionOverviewHolder.vSessionTire.setText(soi.sessionTire);
         sessionOverviewHolder.vLinearLayout.setBackgroundColor(soi.backgroundColor);
+
+        sessionOverviewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), SessionViewActivity.class);
+                    intent.putExtra("SessionID", sessionOverviewList.get(i).sessionId);
+                v.getContext().startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -66,15 +78,6 @@ public class SessionOverviewAdapter extends RecyclerView.Adapter<SessionOverview
             vSessionPosition = (TextView) v.findViewById(R.id.sessionPos);
             vSessionTire = (TextView) v.findViewById(R.id.sessionTire);
             vLinearLayout = (LinearLayout) v.findViewById(R.id.sessionOverviewLinearLayout);
-
-            v.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(v.getContext(), SessionViewActivity.class);
-                    //intent.putExtra("tableId", )
-                    v.getContext().startActivity(intent);
-                }
-            });
         }
     }
 }
