@@ -122,7 +122,7 @@ public class TrackOverview extends AppCompatActivity {
         ContentValues myCV = new ContentValues();
         myCV.put(DataProvider.PHOTO_TABLE_COL_DATE, "09/25/2019");
         myCV.put(DataProvider.PHOTO_TABLE_COL_SESSTYPE, "Practice");
-        myCV.put(DataProvider.PHOTO_TABLE_COL_TRACK, "Melbourne");
+        myCV.put(DataProvider.PHOTO_TABLE_COL_TRACK, "Paul Ricard");
         myCV.put(DataProvider.PHOTO_TABLE_COL_TEAM, "Mercedes");
         myCV.put(DataProvider.PHOTO_TABLE_COL_TYRETYPE, "SS");
         myCV.put(DataProvider.PHOTO_TABLE_COL_LAPS, "15");

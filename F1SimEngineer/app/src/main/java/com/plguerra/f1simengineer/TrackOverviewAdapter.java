@@ -73,6 +73,8 @@ public class TrackOverviewAdapter extends RecyclerView.Adapter<TrackOverviewAdap
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(v.getContext(), SessionOverview.class);
+                    String test = vTrackName.getText().toString();
+                    intent.putExtra("TrackName", test);
                     v.getContext().startActivity(intent);
                 }
             });
