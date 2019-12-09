@@ -1,8 +1,6 @@
 package com.plguerra.f1simengineer;
 
-import java.util.Date;
-
-public class SessionOverviewInfo {
+public class SessionViewInfo {
     protected String sessionType;
     protected String sessionDate;
     protected String sessionVehicle;

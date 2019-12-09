@@ -77,6 +77,7 @@ public class SessionOverview extends AppCompatActivity {
         int i = 0;
         for (SessionOverviewInfo item : sqlInfo) {
             SessionOverviewInfo soi = new SessionOverviewInfo();
+            soi.sessionId = item.sessionId;
             soi.sessionType = item.sessionType; // Needs to get it from database
             soi.sessionDate = item.sessionDate;
             soi.sessionVehicle = SessionOverviewInfo.VEHICLE_PREFIX + item.sessionVehicle;
