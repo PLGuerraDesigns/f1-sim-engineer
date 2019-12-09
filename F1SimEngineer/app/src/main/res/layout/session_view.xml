@@ -116,20 +116,20 @@
                 android:textSize="20dp"
                 android:paddingTop="5dp"/>
             <TextView
-                android:id="@+id/averageLapTime"
+                android:id="@+id/topSpeed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="50dp"
                 android:textColor="@color/white"
-                android:text="@string/averageLapTime"
+                android:text="Top Speed:"
                 android:textSize="20dp"
                 android:paddingTop="5dp"/>
 
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:layout_marginVertical="20dp"
-                android:background="@color/orange"/>
+<!--            <ImageView-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="2dp"-->
+<!--                android:layout_marginVertical="20dp"-->
+<!--                android:background="@color/orange"/>-->
 
             <TextView
                 android:id="@+id/sector1Time"

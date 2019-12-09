@@ -3,6 +3,7 @@ package com.plguerra.f1simengineer;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
@@ -10,13 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.plguerra.f1simengineer.DataPackets.SessionOverview_Data;
-import com.plguerra.f1simengineer.DataPackets.TrackOverview_Data;
-
-import java.text.Format;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class SessionOverview extends AppCompatActivity {
@@ -79,6 +74,7 @@ public class SessionOverview extends AppCompatActivity {
             SessionOverviewInfo soi = new SessionOverviewInfo();
             soi.sessionType = item.sessionType; // Needs to get it from database
             soi.sessionDate = item.sessionDate;
+            soi.sessionId = item.sessionId;
             soi.sessionVehicle = SessionOverviewInfo.VEHICLE_PREFIX + item.sessionVehicle;
             soi.sessionBestLap = SessionOverviewInfo.BESTLAPS_PREFIX + item.sessionBestLap;
             soi.sessionTire = SessionOverviewInfo.TIRE_PREFIX + item.sessionTire;
@@ -100,16 +96,16 @@ public class SessionOverview extends AppCompatActivity {
     public List<SessionOverviewInfo> LoadTask(){
 
         String[] projection = {                                  // The columns to return for each row
-                DataProvider.PHOTO_TABLE_COL_BESTLAP,
-                DataProvider.PHOTO_TABLE_COL_DATE,
-                DataProvider.PHOTO_TABLE_COL_LAPS,
-                DataProvider.PHOTO_TABLE_COL_POSITION,
-                DataProvider.PHOTO_TABLE_COL_TEAM,
-                DataProvider.PHOTO_TABLE_COL_TYRETYPE,
-                DataProvider.PHOTO_TABLE_COL_SESSTYPE,
-                DataProvider.PHOTO_TABLE_COL_ID
+                DataProvider.SESSION_TABLE_COL_BESTLAP,
+                DataProvider.SESSION_TABLE_COL_DATE,
+                DataProvider.SESSION_TABLE_COL_LAPS,
+                DataProvider.SESSION_TABLE_COL_POSITION,
+                DataProvider.SESSION_TABLE_COL_TEAM,
+                DataProvider.SESSION_TABLE_COL_TYRETYPE,
+                DataProvider.SESSION_TABLE_COL_SESSTYPE,
+                DataProvider.SESSION_TABLE_COL_ID
         };
-        String selection = DataProvider.PHOTO_TABLE_COL_TRACK + " =?";
+        String selection = DataProvider.SESSION_TABLE_COL_TRACK + " =?";
         String[] selectionArg = {trackNameFromIntent};
         Cursor myCursor = getContentResolver().query(DataProvider.CONTENT_URI, projection, selection, selectionArg, null);
         List itemIds = new ArrayList<TrackOverviewInfo>();

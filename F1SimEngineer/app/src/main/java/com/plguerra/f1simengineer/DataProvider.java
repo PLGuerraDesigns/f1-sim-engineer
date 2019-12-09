@@ -27,44 +27,44 @@ public class DataProvider extends ContentProvider {
             Uri.parse("content://" + AUTHORITY + "/"+TABLE_NAME);
 
     //Column names for the SessionList Table
-    public static final String PHOTO_TABLE_COL_ID = "_ID";
-    public static final String PHOTO_TABLE_COL_DATE = "Date";
-    public static final String PHOTO_TABLE_COL_SESSTYPE = "Session_Type";
-    public static final String PHOTO_TABLE_COL_TRACK = "Track_Name";
-    public static final String PHOTO_TABLE_COL_TEAM = "Team_Car";
-    public static final String PHOTO_TABLE_COL_TYRETYPE = "Tyre_Compound";
-    public static final String PHOTO_TABLE_COL_LAPS = "Total_Laps";
-    public static final String PHOTO_TABLE_COL_TOPSPEED = "Top_Speed";
-    public static final String PHOTO_TABLE_COL_AVGSPEED = "Average_Speed";
-    public static final String PHOTO_TABLE_COL_POSITION = "Final_Position";
-    public static final String PHOTO_TABLE_COL_SESSTIME = "Total_Session_Time";
-    public static final String PHOTO_TABLE_COL_BESTLAP = "Best_Lap_Time";
-    public static final String PHOTO_TABLE_COL_AVGTIME = "Average_Lap_Time";
-    public static final String PHOTO_TABLE_COL_BESTSECTOR1 = "Best_Sector_1_Time";
-    public static final String PHOTO_TABLE_COL_BESTSECTOR2 = "Best_Sector_2_Time";
-    public static final String PHOTO_TABLE_COL_BESTSECTOR3 = "Best_Sector_3_Time";
+    public static final String SESSION_TABLE_COL_ID = "_ID";
+    public static final String SESSION_TABLE_COL_DATE = "Date";
+    public static final String SESSION_TABLE_COL_SESSTYPE = "Session_Type";
+    public static final String SESSION_TABLE_COL_TRACK = "Track_Name";
+    public static final String SESSION_TABLE_COL_TEAM = "Team_Car";
+    public static final String SESSION_TABLE_COL_TYRETYPE = "Tyre_Compound";
+    public static final String SESSION_TABLE_COL_LAPS = "Total_Laps";
+    public static final String SESSION_TABLE_COL_TOPSPEED = "Top_Speed";
+    public static final String SESSION_TABLE_COL_AVGSPEED = "Average_Speed";
+    public static final String SESSION_TABLE_COL_POSITION = "Final_Position";
+    public static final String SESSION_TABLE_COL_SESSTIME = "Total_Session_Time";
+    public static final String SESSION_TABLE_COL_BESTLAP = "Best_Lap_Time";
+    public static final String SESSION_TABLE_COL_AVGTIME = "Average_Lap_Time";
+    public static final String SESSION_TABLE_COL_BESTSECTOR1 = "Best_Sector_1_Time";
+    public static final String SESSION_TABLE_COL_BESTSECTOR2 = "Best_Sector_2_Time";
+    public static final String SESSION_TABLE_COL_BESTSECTOR3 = "Best_Sector_3_Time";
 
 
     //Table create string based on column names
     private static final String SQL_CREATE_MAIN = "CREATE TABLE " +
             TABLE_NAME+ " " +                       // Table's name
             "(" +                           // The columns in the table
-            PHOTO_TABLE_COL_ID + " INTEGER PRIMARY KEY, " +
-            PHOTO_TABLE_COL_DATE + " TEXT, " +
-            PHOTO_TABLE_COL_SESSTYPE + " TEXT, " +
-            PHOTO_TABLE_COL_TRACK + " TEXT, " +
-            PHOTO_TABLE_COL_TEAM + " TEXT, " +
-            PHOTO_TABLE_COL_TYRETYPE + " TEXT, " +
-            PHOTO_TABLE_COL_LAPS + " TEXT, " +
-            PHOTO_TABLE_COL_TOPSPEED + " TEXT, " +
-            PHOTO_TABLE_COL_AVGSPEED + " TEXT, " +
-            PHOTO_TABLE_COL_POSITION + " TEXT, " +
-            PHOTO_TABLE_COL_SESSTIME + " TEXT, " +
-            PHOTO_TABLE_COL_BESTLAP + " TEXT, " +
-            PHOTO_TABLE_COL_AVGTIME + " TEXT, " +
-            PHOTO_TABLE_COL_BESTSECTOR1 + " TEXT, " +
-            PHOTO_TABLE_COL_BESTSECTOR2 + " TEXT, " +
-            PHOTO_TABLE_COL_BESTSECTOR3 + " TEXT)";
+            SESSION_TABLE_COL_ID + " INTEGER PRIMARY KEY, " +
+            SESSION_TABLE_COL_DATE + " TEXT, " +
+            SESSION_TABLE_COL_SESSTYPE + " TEXT, " +
+            SESSION_TABLE_COL_TRACK + " TEXT, " +
+            SESSION_TABLE_COL_TEAM + " TEXT, " +
+            SESSION_TABLE_COL_TYRETYPE + " TEXT, " +
+            SESSION_TABLE_COL_LAPS + " TEXT, " +
+            SESSION_TABLE_COL_TOPSPEED + " TEXT, " +
+            SESSION_TABLE_COL_AVGSPEED + " TEXT, " +
+            SESSION_TABLE_COL_POSITION + " TEXT, " +
+            SESSION_TABLE_COL_SESSTIME + " TEXT, " +
+            SESSION_TABLE_COL_BESTLAP + " TEXT, " +
+            SESSION_TABLE_COL_AVGTIME + " TEXT, " +
+            SESSION_TABLE_COL_BESTSECTOR1 + " TEXT, " +
+            SESSION_TABLE_COL_BESTSECTOR2 + " TEXT, " +
+            SESSION_TABLE_COL_BESTSECTOR3 + " TEXT)";
 
     //URI Matcher object to facilitate switch cases between URIs
     private static final UriMatcher sUriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
@@ -86,7 +86,7 @@ public class DataProvider extends ContentProvider {
             //Match on URI with ID
             case 2:
                 String id = uri.getPathSegments().get(1);
-                selection = PHOTO_TABLE_COL_ID + "=" + id +
+                selection = SESSION_TABLE_COL_ID + "=" + id +
                         (!TextUtils.isEmpty(selection) ? "AND (" + selection  + ")" : "");
                 break;
             default:
@@ -189,7 +189,7 @@ public class DataProvider extends ContentProvider {
             case 2:
                 //Allow updates based on a single ID
                 String id = uri.getPathSegments().get(1);
-                selection = PHOTO_TABLE_COL_ID + "=" + id +
+                selection = SESSION_TABLE_COL_ID + "=" + id +
                         (!TextUtils.isEmpty(selection) ?
                                 "AND (" + selection + ")" : "");
                 break;
