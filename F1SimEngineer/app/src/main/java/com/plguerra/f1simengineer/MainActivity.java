@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         Intent intent;
-
+        //Determine what item was clicked and start the activity
         switch (v.getId()) {
             case R.id.dashboard_button:
                 intent = new Intent(this, Dashboard.class);
@@ -38,7 +38,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.analysis_button:
-                openSimpleTrackOverview();
+                intent = new Intent(this, TrackOverview.class);
+                startActivity(intent);
                 break;
 
             case R.id.settings_button:
@@ -47,12 +48,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
         }
-    }
-
-    //Open TrackOverview page
-    public void openSimpleTrackOverview(){
-        Intent intent = new Intent(this, TrackOverview.class);
-        startActivity(intent);
     }
 }
 

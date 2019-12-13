@@ -4,7 +4,7 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 
 public class Event_Data {
-    public short eventStringCode[];     // Event string code, see below
+    public short eventStringCode[];     // Event string code
 
     public Event_Data(byte[] content){
         ByteBuffer bb = ByteBuffer.wrap(content);

@@ -39,6 +39,7 @@ public class SettingsActivity extends AppCompatActivity{
         WifiInfo wifiInfo = wifiManager.getConnectionInfo();
         int ipInt = wifiInfo.getIpAddress();
         String ip = null;
+        //Display Device IP
         try {
             ip = InetAddress.getByAddress(
                     ByteBuffer.allocate(4).order(ByteOrder.LITTLE_ENDIAN).putInt(ipInt).array())
@@ -47,8 +48,9 @@ public class SettingsActivity extends AppCompatActivity{
             e.printStackTrace();
         }
         ipInfo.setText(ip);
+        //Display Port
         portInfo.setText(sharedPref.getString("PortInfo","20777"));
-
+        //Save port value to device
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

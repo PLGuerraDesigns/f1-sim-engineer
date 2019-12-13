@@ -32,7 +32,7 @@ import java.util.Calendar;
 
 public class Dashboard extends AppCompatActivity{
     private static final String TAG = "Dashboard";
-
+    //Declaring all variables
     public TextView gear;
     public TextView speed;
     public TextView position;
@@ -65,8 +65,6 @@ public class Dashboard extends AppCompatActivity{
     float BestS1 = 9999;
     float BestS2 = 9999;
     float BestS3 = 9999;
-//    float totalLapTime = 0;
-//    int lastLapNum = 1;
     int playerID = 0;
     public static int MAX_BUFFER = 2048;
 
@@ -77,16 +75,16 @@ public class Dashboard extends AppCompatActivity{
     Lap_Packet lap_packet;
     Telemetry_Packet telemetry_packet;
     Participants_Packet participants_packet;
-
     final Handler handler = new Handler();
-
 
 
     public void onStop() {
         super.onStop();
+        //Exit while loop in thread
         running = false;
     }
 
+    //Check if the user is exiting the dashboard view and prompt save message
     @Override
     public void onBackPressed() {
         new AlertDialog.Builder(this)
@@ -136,12 +134,15 @@ public class Dashboard extends AppCompatActivity{
         weather = findViewById(R.id.Weather);
         tyre_compound = findViewById(R.id.Tyre);
 
+        //Assign port value
         port = Integer.valueOf(sharedPref.getString("PortInfo", "20777"));
+        //Start listening for udp data
         startServerSocket();
         running = true;
     }
 
     private void startServerSocket() {
+        //Create thread to listen for UDP data packets
         Thread thread = new Thread(new Runnable() {
 
             @Override
@@ -157,6 +158,7 @@ public class Dashboard extends AppCompatActivity{
 
                     packetheader = new PacketHeader(msg);
                     playerID = packetheader.playerCarIndex;
+                    //Unpack the data
                     UnpackData(packetheader.packetId, msg);
                 }
                 }
@@ -170,12 +172,14 @@ public class Dashboard extends AppCompatActivity{
     }
 
     public void AddSessionData() {
+        //Store the data into the database
         Calendar calendar = Calendar.getInstance();
         String currentDate = DateFormat.getDateInstance().format(calendar.getTime());
         ContentValues myCV = new ContentValues();
 
 
         if(data_Received) {
+            //Check to see if actually received that type of data before saving
             myCV.put(DataProvider.SESSION_TABLE_COL_DATE, currentDate);
             if (participants_Received) {
                 myCV.put(DataProvider.SESSION_TABLE_COL_TEAM, participants_packet.ParticipantDataList.get(playerID).getTeam());
@@ -193,7 +197,6 @@ public class Dashboard extends AppCompatActivity{
                 myCV.put(DataProvider.SESSION_TABLE_COL_LAPS, lap_packet.LapDataList.get(playerID).currentLapNum);
                 myCV.put(DataProvider.SESSION_TABLE_COL_POSITION, lap_packet.LapDataList.get(playerID).carPosition);
                 myCV.put(DataProvider.SESSION_TABLE_COL_BESTLAP, lap_packet.LapDataList.get(playerID).getBestLapTime(true));
-//                myCV.put(DataProvider.SESSION_TABLE_COL_AVGTIME, (totalLapTime / (lap_packet.LapDataList.get(playerID).currentLapNum - 1)));
                 if(BestS1 != 9999) {
                     myCV.put(DataProvider.SESSION_TABLE_COL_BESTSECTOR1, BestS1);
                     myCV.put(DataProvider.SESSION_TABLE_COL_BESTSECTOR2, BestS2);
@@ -207,6 +210,7 @@ public class Dashboard extends AppCompatActivity{
 
             getContentResolver().insert(DataProvider.CONTENT_URI, myCV);
             showToast("Session Saved.");
+            //Reset values
             carStatus_Received = false;
             event_Received = false;
             lap_Received = false;
@@ -235,8 +239,7 @@ public class Dashboard extends AppCompatActivity{
         handler.post(new Runnable() {
             public void run() {
                 try {
-//                    Log.d(TAG, "ID:" + packetheader.packetId);
-
+                    //Update the dashboard view with the received data
                     gear.setText(String.valueOf(telemetry_packet.TelemetryDataList.get(playerID).getGear()));
                     speed.setText(telemetry_packet.TelemetryDataList.get(playerID).speed + "KPH");
                     position.setText(String.valueOf(lap_packet.LapDataList.get(playerID).carPosition));
@@ -254,18 +257,15 @@ public class Dashboard extends AppCompatActivity{
                     best_Lap.setText(String.valueOf(lap_packet.LapDataList.get(playerID).getBestLapTime(true)));
                     last_Lap.setText(String.valueOf(lap_packet.LapDataList.get(playerID).getLastLapTime(true)));
 
-                    Log.d(TAG, String.valueOf(carStatus_packet.CarStatusList.get(playerID).actualTyreCompound));
+                    //Set tyre compound image
                     switch(carStatus_packet.CarStatusList.get(playerID).actualTyreCompound){
-//                        case 16:
                         case 11:
                             tyre_compound.setImageResource(R.drawable.c5);
                             break;
-//                        case 17:
                         case 16:
                         case 12:
                             tyre_compound.setImageResource(R.drawable.c4);
                             break;
-//                        case 18:
                         case 17:
                             tyre_compound.setImageResource(R.drawable.c3);
                             break;
@@ -291,6 +291,7 @@ public class Dashboard extends AppCompatActivity{
                             break;
                     }
 
+                    //Set weather image
                     switch(session_data.weather){
                             case 0:
                                 weather.setImageResource(R.drawable.clear);
@@ -315,6 +316,7 @@ public class Dashboard extends AppCompatActivity{
                                 break;
                     }
 
+                    //Set DRS image
                     if(telemetry_packet.TelemetryDataList.get(playerID).drs == 1){
                         drs.setImageResource(R.drawable.drs_on);
                     }
@@ -350,7 +352,7 @@ public class Dashboard extends AppCompatActivity{
 
     public void UnpackData(short packetId, byte[] packet) {
         data_Received = true;
-
+        //Determine what type of data was received and assign the data to the proper objects
         switch (packetId) {
             case 1:
                 session_data = new Session_Data(Arrays.copyOfRange(packet, PacketHeader.HEADER_SIZE, packet.length - 1));
@@ -375,10 +377,6 @@ public class Dashboard extends AppCompatActivity{
                             BestS3 = Float.valueOf(lap_packet.LapDataList.get(playerID).getSector3Time(false));
                         }
                     }
-//                    if (lap_packet.LapDataList.get(playerID).currentLapNum > lastLapNum) {
-//                        totalLapTime = lap_packet.LapDataList.get(playerID).lastLapTime;
-//                        lastLapNum = lap_packet.LapDataList.get(playerID).currentLapNum;
-//                    }
                 }
 
                 break;
