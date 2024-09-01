@@ -4,21 +4,23 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 
 public class Telemetry_Data {
-    int     speed;                      // Speed of car in kilometres per hour
-    float   throttle;                   // Amount of throttle applied (0.0 to 1.0)
-    float   steer;                      // Steering (-1.0 (full lock left) to 1.0 (full lock right))
-    float   brake;                      // Amount of brake applied (0.0 to 1.0)
-    short   clutch;                     // Amount of clutch applied (0 to 100)
-    short   gear;                       // Gear selected (1-8, N=0, R=-1)
-    int     engineRPM;                  // Engine RPM
-    short   drs;                        // 0 = off, 1 = on
-    short   revLightsPercent;           // Rev lights indicator (percentage)
-    int     brakesTemperature[];        // Brakes temperature (celsius)
-    int     tyresSurfaceTemperature[];  // Tyres surface temperature (celsius)
-    int     tyresInnerTemperature[];    // Tyres inner temperature (celsius)
-    int     engineTemperature;          // Engine temperature (celsius)
-    float   tyresPressure[];            // Tyres pressure (PSI)
-    short   surfaceType[];              // Driving surface, see appendices
+    public static int SIZE = 66;
+
+    public  int     speed;                      // Speed of car in kilometres per hour
+    public  float   throttle;                   // Amount of throttle applied (0.0 to 1.0)
+    public  float   steer;                      // Steering (-1.0 (full lock left) to 1.0 (full lock right))
+    public  float   brake;                      // Amount of brake applied (0.0 to 1.0)
+    public  short   clutch;                     // Amount of clutch applied (0 to 100)
+    public  short   gear;                       // Gear selected (1-8, N=0, R=-1)
+    public  int     engineRPM;                  // Engine RPM
+    public  short   drs;                        // 0 = off, 1 = on
+    public  short   revLightsPercent;           // Rev lights indicator (percentage)
+    public  int     brakesTemperature[];        // Brakes temperature (celsius)
+    public  int     tyresSurfaceTemperature[];  // Tyres surface temperature (celsius)
+    public  int     tyresInnerTemperature[];    // Tyres inner temperature (celsius)
+    public  int     engineTemperature;          // Engine temperature (celsius)
+    public  float   tyresPressure[];            // Tyres pressure (PSI)
+    public  short   surfaceType[];              // Driving surface, see appendices
     
 
     public Telemetry_Data(byte[] content) {
@@ -62,13 +64,6 @@ public class Telemetry_Data {
         surfaceType[3] = bb.get();
     }
 
-    public String getDRS(){
-        switch(drs){
-            case 0: return "OFF";
-            case 1: return "ON";
-            default: return "";
-        }
-    }
 
     public String getGear(){
         switch(gear){
@@ -86,42 +81,4 @@ public class Telemetry_Data {
         }
     }
 
-
-    public String toString(){
-        String ret = "Speed: "+speed+" kpm\n";
-        ret += "Throttle: "+throttle+"\n";
-        ret += "Steer: "+steer+"\n";
-        ret += "Brake: "+brake+"\n";
-        ret += "Clutch: "+clutch+"\n";
-        ret += "Gear: "+gear+"\n";
-
-
-        ret += "Engine RPM: "+engineRPM+" rpm\n";
-        ret += "DRS: "+getDRS()+"\n";
-        ret += "Rev lights Percent: "+revLightsPercent+" %\n";
-        ret += "Brakes Temperature:\n";
-        ret += " - RL: "+brakesTemperature[0]+" ºC\n";
-        ret += " - RL: "+brakesTemperature[1]+" ºC\n";
-        ret += " - RL: "+brakesTemperature[2]+" ºC\n";
-        ret += " - RL: "+brakesTemperature[3]+" ºC\n";
-        ret += "Tyres Surface Temperature:\n";
-        ret += " - RL: "+tyresSurfaceTemperature[0]+" ºC\n";
-        ret += " - RL: "+tyresSurfaceTemperature[1]+" ºC\n";
-        ret += " - RL: "+tyresSurfaceTemperature[2]+" ºC\n";
-        ret += " - RL: "+tyresSurfaceTemperature[3]+" ºC\n";
-        ret += "Tyres Inner Temperature:\n";
-        ret += " - RL: "+tyresInnerTemperature[0]+" ºC\n";
-        ret += " - RL: "+tyresInnerTemperature[1]+" ºC\n";
-        ret += " - RL: "+tyresInnerTemperature[2]+" ºC\n";
-        ret += " - RL: "+tyresInnerTemperature[3]+" ºC\n";
-        ret += "Engine Temperature: "+engineTemperature+" ºC\n";
-        ret += "Tyres Pressure:\n";
-        ret += " - RL: "+tyresPressure[0]+" psi\n";
-        ret += " - RL: "+tyresPressure[1]+" psi\n";
-        ret += " - RL: "+tyresPressure[2]+" psi\n";
-        ret += " - RL: "+tyresPressure[3]+" psi\n";
-
-
-        return ret;
-    }
 }

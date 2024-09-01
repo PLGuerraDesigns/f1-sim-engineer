@@ -51,27 +51,4 @@ public class CarSetup_Data {
         fuelLoad = bb.getFloat();
     }
 
-    public String toString(){
-        String ret = "Front Wing: "+frontWing+"\n";
-        ret += "Rear Wing: "+rearWing+"\n";
-        ret += "On throttle: "+onThrottle+"\n";
-        ret += "Off throttle: "+offThrottle+"\n";
-        ret += "Front camber: "+frontCamber+"\n";
-        ret += "Rear camber: "+rearCamber+"\n";
-        ret += "Front toe: "+frontToe+"\n";
-        ret += "Rear toe: "+rearToe+"\n";
-        ret += "Front suspension: "+frontSuspension+"\n";
-        ret += "Rear suspension: "+rearSuspension+"\n";
-        ret += "Front antirollbar: "+frontAntiRollBar+"\n";
-        ret += "Rear antirollbar: "+rearAntiRollBar+"\n";
-        ret += "Front suspension height: "+frontSuspensionHeight+"\n";
-        ret += "Rear suspension height: "+rearSuspensionHeight+"\n";
-        ret += "Brake pressure: "+brakePressure+"\n";
-        ret += "Brake bias: "+brakeBias+"\n";
-        ret += "Front tyre pressure: "+frontTyrePressure+"\n";
-        ret += "Rear tyre pressure: "+rearTyrePressure+"\n";
-        ret += "Ballast: "+ballast+"\n";
-        ret += "Fuel load: "+fuelLoad+"\n";
-        return ret;
-    }
 }
